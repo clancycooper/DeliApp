@@ -68,7 +68,7 @@ public class UserInterface {
         int size = keyboard.nextInt();
 
         System.out.println("What type of bread would you like?");
-        String breadType = keyboard.next().trim().toLowerCase();
+        String breadType = keyboard.next().trim().toUpperCase();
 
 
 
