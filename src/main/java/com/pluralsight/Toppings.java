@@ -70,7 +70,7 @@ public class Toppings {
 *  */
 
 protected String toppingName;
-protected boolean isMeat, isExtraMeat, isCheese, isExtraCheese, isMunchy, isExtraMunchy;
+protected boolean isMeat, isExtraMeat, isCheese, isExtraCheese, isMunchy, isExtraMunchy, isSauce;
 protected double toppingPrice;
 
 //ArrayList<Topping(regularToppings())>;
