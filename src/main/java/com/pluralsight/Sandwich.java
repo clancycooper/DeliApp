@@ -53,50 +53,17 @@ public class Sandwich extends Item{
                 case "small":
                     sandwichPrice = 5.50;
                     for(Toppings topping: sandwichToppings) {
-                        if(topping.isMeat && !isExtraMeat)
-                            sandwichPrice += 1.00;
-                        else if(topping.isExtraMeat)
-                            sandwichPrice += .50;
-                        else if(topping.isCheese && !isExtraCheese)
-                            sandwichPrice += .75;
-                        else if(topping.isExtraCheese)
-                            sandwichPrice += .30;
-                        else if(topping.isMunchy && !isExtraMunchy)
-                            sandwichPrice += 1.25;
-                        else if(isExtraMunchy)
-                            sandwichPrice += .60;
+                       sandwichPrice += topping.getPrice();
                     }
                 case "medium":
                     sandwichPrice = 7.00;
                     for(Toppings topping: sandwichToppings) {
-                        if(topping.isMeat && !isExtraMeat)
-                            sandwichPrice += 2.00;
-                        else if(topping.isExtraMeat)
-                            sandwichPrice += 1.00;
-                        else if(topping.isCheese && !isExtraCheese)
-                            sandwichPrice += 1.50;
-                        else if(topping.isExtraCheese)
-                            sandwichPrice += .60;
-                        else if(topping.isMunchy && !isExtraMunchy)
-                            sandwichPrice += 2.50;
-                        else if(isExtraMunchy)
-                            sandwichPrice += 1.20;
+                        sandwichPrice += topping.getPrice();
                     }
                 case "large":
                     sandwichPrice = 8.50;
                     for(Toppings topping: sandwichToppings) {
-                        if(topping.isMeat && !isExtraMeat)
-                            sandwichPrice += 3.00;
-                        else if(topping.isExtraMeat)
-                            sandwichPrice += 1.50;
-                        else if(topping.isCheese && !isExtraCheese)
-                            sandwichPrice += 2.25;
-                        else if(topping.isExtraCheese)
-                            sandwichPrice += .90;
-                        else if(topping.isMunchy && !isExtraMunchy)
-                            sandwichPrice += 3.75;
-                        else if(isExtraMunchy)
-                            sandwichPrice += 1.80;
+                        sandwichPrice += topping.getPrice();
                     }
             }
         return sandwichPrice;
