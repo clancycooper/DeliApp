@@ -89,11 +89,17 @@ public class UserInterface {
         System.out.println("What size drink would you like?");
         String drinkSize = keyboard.next().toUpperCase().trim();
 
+        System.out.println("What flavor drink would you like?");
+        String flavour = keyboard.next().toUpperCase().trim();
 
     }
 
     public static void addChips(){
+        Scanner keyboard = new Scanner(System.in);
         System.out.println("What kind of chips would you like?");
+        String chipType = keyboard.next().toUpperCase().trim();
+
+
 
     }
 
