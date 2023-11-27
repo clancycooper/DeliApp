@@ -1,6 +1,6 @@
 package com.pluralsight;
 
-public class Drink implements SandwichFunctions {
+public class Drink implements ItemFunctions{
     protected String drinkSize, drinkFlavor;
     protected boolean hasIce;
     protected double drinkCost;

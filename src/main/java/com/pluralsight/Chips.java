@@ -1,6 +1,6 @@
 package com.pluralsight;
 
-public class Chips implements SandwichFunctions {
+public class Chips implements ItemFunctions {
     protected String chipType;
 
     public Chips(String chipType) {
