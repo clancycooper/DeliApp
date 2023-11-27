@@ -1,6 +1,6 @@
 package com.pluralsight;
 
-public class Chips implements ItemFunctions {
+public class Chips extends Item {
     protected String chipType;
 
     public Chips(String chipType) {

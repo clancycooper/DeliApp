@@ -1,6 +1,6 @@
 package com.pluralsight;
 
-public class Drink implements ItemFunctions{
+public class Drink extends Item {
     protected String drinkSize, drinkFlavor;
     protected boolean hasIce;
     protected double drinkCost;
