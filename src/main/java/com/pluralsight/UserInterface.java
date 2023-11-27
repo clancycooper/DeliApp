@@ -75,7 +75,8 @@ public class UserInterface {
         //Prompt user for toppings to use
 
 
-        System.out.println();
+        System.out.println("Would you like your sandwich toasted(Yes or No)?");
+        String toasted = keyboard.next().trim().toUpperCase();
 
     }
 
@@ -92,7 +93,7 @@ public class UserInterface {
     }
 
     public static void addChips(){
-
+        System.out.println("What kind of chips would you like?");
 
     }
 
