@@ -3,7 +3,7 @@ package com.pluralsight;
 import java.util.ArrayList;
 
 public abstract class Item implements ItemFunctions{
-    static ArrayList<Item> cart;
+    static ArrayList<Item> cart = new ArrayList<Item>();
     public Item() {
         this.cart = new ArrayList<>();
     }
