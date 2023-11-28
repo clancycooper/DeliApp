@@ -1,6 +1,10 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
+
+import static com.pluralsight.Toppings.*;
 
 public class UserInterface {
     public static void main(String[] args) {
@@ -64,21 +68,145 @@ public class UserInterface {
     }
 
     public static void addSandwich(){
+        ArrayList<Toppings> toppings = new ArrayList<>();
+
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.println("What size sandwich in would you like; 4inch, 8inch, or 12 inch?");
+        System.out.println(" What size sandwich in would you like; small(4inch), medium(8inch), or 12 inch?");
+        System.out.println(" 1) small (4 inch)");
+        System.out.println(" 2) medium (8 inch)");
+        System.out.println(" 3) large (12 inch)");
+
         int sandwichSize = keyboard.nextInt();
+        String size = "";
+            switch(sandwichSize){
+                case 1:
+                    //small
+                    size = "small";
+                    break;
+                case 2:
+                    //medium
+                    size = "medium";
+                    break;
+                case 3:
+                    //large
+                    size ="large";
+                    break;
+
+                default:
+                    System.out.println("That's not a valid size. Please try again.");
+            }
+
 
         System.out.println("What type of bread would you like?");
         String breadType = keyboard.next().trim().toUpperCase();
 
-        //Prompt user for toppings to use
-
-
-        System.out.println("Would you like your sandwich toasted(Yes or No)?");
+        System.out.println("Would you like your sandwich toasted([1]Yes or [2]No)?");
         String toasted = keyboard.next().trim().toUpperCase();
+        boolean isToasted = true;
+        switch(toasted){
+            case "1":
+                break;
+            case "2":
+                isToasted = false;
+            default:
+                System.out.println("Please enter 1 or 2.");
+        }
+
+
+
+        //Prompt user for toppings to use
+        System.out.println("Would you like Toppings([1]Yes or [2]No)?");
+        String response = keyboard.nextLine().toUpperCase().trim();
+
+        switch(response){
+            case "1":
+                ToppingsMenu(toppings);
+                break;
+            case "2":
+                System.out.println("Proceeding with no toppings.");
+                break;
+
+            default:
+                System.out.println("Jinkies! That's not a valid option.");
+        }
+
+        Sandwich sandwich = new Sandwich(breadType,size,toppings, isToasted);
+
+        addToCart(sandwich);
 
     }
+
+     public static void ToppingsMenu(ArrayList<Toppings> newToppings){
+
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Enter your choice: ");
+        String choice = keyboard.nextLine().toUpperCase().trim();
+        //Topping menu
+
+        switch(choice){
+            case "1":
+
+                toStringRegularToppings();
+                System.out.println("Please enter # of topping choice: ");
+                int regToppingChoice = keyboard.nextInt();
+                newToppings.add(regularToppings.get(regToppingChoice-1));
+                break;
+
+            case "2":
+
+                toStringPremiumToppings();
+                System.out.println("Please enter # of topping choice: ");
+                int PremToppingChoice = keyboard.nextInt();
+                newToppings.add((premiumToppings.get(PremToppingChoice-1)));
+                break;
+
+            case "3":
+
+                toStringMunchyToppings();
+                System.out.println("Please enter # of topping choice: ");
+                int MunToppingChoice = keyboard.nextInt();
+                newToppings.add((munchyToppings.get(MunToppingChoice-1)));
+                break;
+
+            case"4":
+                System.out.println("Exiting Toppings Selection.");
+                break;
+
+
+            default:
+                System.out.println("Ruh-Roh! That's not a valid option.");
+
+        }
+
+
+            anotherTopping(newToppings);
+
+
+
+     }
+
+    public static void anotherTopping(ArrayList<Toppings> anotherTopping) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Would you like to add another topping? ([1]Yes or [2]No)");
+        String response = keyboard.nextLine();
+
+
+        switch (response) {
+            case "1":
+                ToppingsMenu(anotherTopping);
+                break;
+            case "2":
+                break;
+
+            default:
+                System.out.println("Please enter valid selection.");
+        }
+
+
+    }
+
+
 
 
 
@@ -99,6 +227,12 @@ public class UserInterface {
         System.out.println("What kind of chips would you like?");
         String chipType = keyboard.next().toUpperCase().trim();
 
+
+
+    }
+
+    public static void addToCart(Item newItem){
+        cart.add(newItem);
 
 
     }

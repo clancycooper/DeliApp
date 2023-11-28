@@ -1,6 +1,5 @@
 package com.pluralsight;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Toppings extends Item{
@@ -73,9 +72,9 @@ public class Toppings extends Item{
     protected boolean isMeat, isExtraMeat, isCheese, isExtraCheese, isMunchy, isExtraMunchy;
     protected double toppingPrice;
 
-    ArrayList<Toppings> regularToppings;
-    ArrayList<Toppings> premiumToppings;
-    ArrayList<Toppings> munchyToppings;
+    static ArrayList<Toppings> regularToppings;
+    static ArrayList<Toppings> premiumToppings;
+    static ArrayList<Toppings> munchyToppings;
 
 
     public Toppings(String toppingName, String size, boolean isMeat, boolean isExtraMeat, boolean isCheese, boolean isExtraCheese, boolean isMunchy, boolean isExtraMunchy, double toppingPrice) {
@@ -167,27 +166,32 @@ public class Toppings extends Item{
         this.size = size;
     }
 
-    public void toStringRegularToppings() {
+    public static void toStringRegularToppings() {
         int temp = 1;
         System.out.println("List of Regular Toppings: ");
         for(Toppings topping: regularToppings){
             System.out.println(temp + ".) " + topping.getToppingName());
+            temp++;
         }
     }
 
-    public void toStringPremiumToppings() {
+    public static void toStringPremiumToppings() {
         int temp = 1;
         System.out.println("List of Premium Toppings: ");
         for(Toppings topping: premiumToppings){
             System.out.println(temp + ".) " + topping.getToppingName());
+            temp++;
+
         }
     }
 
-    public void toStringMunchyToppings() {
+    public static void toStringMunchyToppings() {
         int temp = 1;
         System.out.println("List of Munchy Toppings: ");
         for(Toppings topping: munchyToppings){
             System.out.println(temp + ".) " + topping.getToppingName());
+            temp++;
+
         }
     }
 
