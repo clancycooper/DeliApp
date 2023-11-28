@@ -1,7 +1,11 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
+
 public class Chips extends Item {
     protected String chipType;
+
+    ArrayList<Chips> chipFlavors;
 
     public Chips(String chipType) {
         this.chipType = chipType;
@@ -13,6 +17,14 @@ public class Chips extends Item {
 
     public void setChipType(String chipType) {
         this.chipType = chipType;
+    }
+
+    public void toStringChipFlavors() {
+        int temp = 1;
+        System.out.println("List of Chip Flavors: ");
+        for(Chips flavors: chipFlavors){
+            System.out.println(temp + ".) " + flavors.getChipType());
+        }
     }
 
     @Override
