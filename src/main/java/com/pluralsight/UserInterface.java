@@ -206,8 +206,9 @@ public class UserInterface {
                 System.out.println("\nRuh-Roh! That's not a valid option. Please try again.");
                 addDrink();
         }
-       // Drink newDrink = new Drink(flavour,drinkSize, ice, )
+        // Drink newDrink = new Drink(flavour,drinkSize, ice, )
         // addToCart(newDrink);
+        //Add Options for Drink Flavors and Chip Flavors
     }
 
     public static void addChips(){
