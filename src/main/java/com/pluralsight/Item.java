@@ -3,11 +3,10 @@ package com.pluralsight;
 import java.util.ArrayList;
 
 public abstract class Item implements ItemFunctions{
-    ArrayList<Item> cart;
+    static ArrayList<Item> cart;
     public Item() {
         this.cart = new ArrayList<>();
     }
-
     public static ArrayList<Item> getCart() {
         return cart;
     }
@@ -18,7 +17,4 @@ public abstract class Item implements ItemFunctions{
         }
         return total;
     }
-
-
-
 }
