@@ -1,9 +1,13 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
+
 public class Drink extends Item {
     protected String drinkSize, drinkFlavor;
     protected boolean hasIce;
     protected double drinkCost;
+
+    ArrayList<Drink> drinkFlavors;
 
     public Drink(String drinkSize, String drinkFlavor, boolean hasIce, double drinkCost) {
         this.drinkSize = drinkSize;
@@ -42,6 +46,14 @@ public class Drink extends Item {
 
     public void setDrinkCost(double drinkCost) {
         this.drinkCost = drinkCost;
+    }
+
+    public void toStringDrinkFlavors() {
+        int temp = 1;
+        System.out.println("List of Drink Flavors: ");
+        for(Drink flavors: drinkFlavors){
+            System.out.println(temp + ".) " + flavors.getDrinkFlavor());
+        }
     }
 
     @Override
