@@ -54,11 +54,24 @@ public class UserInterface {
         switch (selection) {
             case 1:
                 //insert method to add sandwich
+                addSandwich();
+                break;
             case 2:
                 //insert method to add drink
+                addDrink();
+                break;
             case 3:
+                addChips();
                 //insert method to add chips
+            case 4:
+                checkOut();
+                break;
 
+            case 0:
+                homeScreen();
+                break;
+            default:
+                System.out.println("Zoinks! That's not a valid selection.");
         }
 
 
@@ -212,6 +225,7 @@ public class UserInterface {
 
 
     public static void addDrink(){
+
         Scanner keyboard = new Scanner(System.in);
 
         System.out.println("What size drink would you like?");
@@ -220,6 +234,21 @@ public class UserInterface {
         System.out.println("What flavor drink would you like?");
         String flavour = keyboard.next().toUpperCase().trim();
 
+        System.out.println("Would you like ice?([1]Yes or [2]No)");
+        String response = keyboard.nextLine().toUpperCase().trim();
+        boolean ice = true;
+        switch(response){
+            case"1":
+                break;
+            case "2":
+                ice = false;
+            default:
+                System.out.println("Please enter 1 or 2.");
+        }
+
+
+       // Drink drink = new Drink(flavour,drinkSize, ice, )
+        // addToCart(drink);
     }
 
     public static void addChips(){
@@ -228,6 +257,9 @@ public class UserInterface {
         String chipType = keyboard.next().toUpperCase().trim();
 
 
+        Chips chips = new Chips(chipType);
+
+        addToCart(chips);
 
     }
 
