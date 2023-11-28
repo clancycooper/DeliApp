@@ -68,4 +68,14 @@ public class Sandwich extends Item{
             }
         return sandwichPrice;
     }
+
+    @Override
+    public String toString() {
+        return "Sandwich{" +
+                "breadType='" + breadType + '\'' +
+                ", sandwichSize='" + sandwichSize + '\'' +
+                ", sandwichToppings=" + sandwichToppings +
+                ", toasted=" + toasted +
+                '}';
+    }
 }

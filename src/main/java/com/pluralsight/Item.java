@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public abstract class Item implements ItemFunctions{
     static ArrayList<Item> cart = new ArrayList<Item>();
     public Item() {
-        this.cart = new ArrayList<>();
     }
     public static ArrayList<Item> getCart() {
         return cart;

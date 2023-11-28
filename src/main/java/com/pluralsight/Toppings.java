@@ -7,12 +7,14 @@ public class Toppings extends Item{
     protected boolean isMeat, isExtraMeat, isCheese, isExtraCheese, isMunchy, isExtraMunchy;
     protected double toppingPrice;
 
-    static ArrayList<Toppings> regularToppings;
-    static ArrayList<Toppings> premiumToppings;
-    static ArrayList<Toppings> munchyToppings;
+    static ArrayList<Toppings> regularToppings = new ArrayList<Toppings>();
+    static ArrayList<Toppings> premiumMeatToppings = new ArrayList<Toppings>();
+    static ArrayList<Toppings> premiumCheeseToppings = new ArrayList<Toppings>();
+    static ArrayList<Toppings> munchyToppings = new ArrayList<Toppings>();
+    static ArrayList<Toppings> dressingToppings = new ArrayList<Toppings>();
 
 
-    public Toppings(String toppingName, String size, boolean isMeat, boolean isExtraMeat, boolean isCheese, boolean isExtraCheese, boolean isMunchy, boolean isExtraMunchy, double toppingPrice) {
+    public Toppings(String toppingName, String size, boolean isMeat, boolean isExtraMeat, boolean isCheese, boolean isExtraCheese, boolean isMunchy, boolean isExtraMunchy) {
         this.toppingName = toppingName;
         this.size = size;
         this.isMeat = isMeat;
@@ -21,7 +23,6 @@ public class Toppings extends Item{
         this.isExtraCheese = isExtraCheese;
         this.isMunchy = isMunchy;
         this.isExtraMunchy = isExtraMunchy;
-        this.toppingPrice = toppingPrice;
     }
 
     public String getToppingName() {
@@ -80,15 +81,6 @@ public class Toppings extends Item{
         isExtraMunchy = extraMunchy;
     }
 
-    public double getToppingPrice() {
-        return this.toppingPrice;
-    }
-
-    public void setToppingPrice(double toppingPrice) {
-        this.toppingPrice = toppingPrice;
-    }
-
-
     public double getPrice(String sandwichSize) {
         return 0;
     }
@@ -103,17 +95,26 @@ public class Toppings extends Item{
 
     public static void toStringRegularToppings() {
         int temp = 1;
-        System.out.println("List of Regular Toppings: ");
+        System.out.println("\nList of Regular Toppings: ");
         for(Toppings topping: regularToppings){
             System.out.println(temp + ".) " + topping.getToppingName());
             temp++;
         }
     }
 
-    public static void toStringPremiumToppings() {
+    public static void toStringMeatToppings() {
         int temp = 1;
-        System.out.println("List of Premium Toppings: ");
-        for(Toppings topping: premiumToppings){
+        System.out.println("\nList of Premium Meat Toppings: ");
+        for(Toppings topping: premiumMeatToppings){
+            System.out.println(temp + ".) " + topping.getToppingName());
+            temp++;
+
+        }
+    }
+    public static void toStringCheeseToppings() {
+        int temp = 1;
+        System.out.println("\nList of Premium Cheese Toppings: ");
+        for(Toppings topping: premiumCheeseToppings){
             System.out.println(temp + ".) " + topping.getToppingName());
             temp++;
 
@@ -122,7 +123,7 @@ public class Toppings extends Item{
 
     public static void toStringMunchyToppings() {
         int temp = 1;
-        System.out.println("List of Munchy Toppings: ");
+        System.out.println("\nList of Munchy Toppings: ");
         for(Toppings topping: munchyToppings){
             System.out.println(temp + ".) " + topping.getToppingName());
             temp++;

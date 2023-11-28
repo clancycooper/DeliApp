@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -13,10 +14,10 @@ import static com.pluralsight.UserInterface.homeScreen;
 public class ReceiptManager {
     private static final String FILE_DIRECTORY = "src/main/resources/Receipts/";
 
-    public static void displayOrderDetails(Item cart) {
+    public static void displayOrderDetails(ArrayList<Item> cart) {
         //confirm order and save receipt
         //or cancel order and return to homeScreen
-        List<Item> order = cart.getCart();
+        ArrayList<Item> order = cart;
         System.out.println("Please review your order, and type CONFIRM or CANCEL below.");
         for (Item item : order) {
             System.out.println("- " + item.toString());
@@ -28,7 +29,7 @@ public class ReceiptManager {
         }
         else if (checkoutChoice.equals("CANCEL")){
             System.out.println("Thank you for visiting Scooby's Snack Shack! Like come back again real soon! Scooby Dooby Doo!~ ");
-            //exit
+            homeScreen();
         }
         else {
             System.out.println("Zoinks! Could not process entry, please try again.");
@@ -38,9 +39,9 @@ public class ReceiptManager {
 
     }
 
-    public static void saveReceipt(Item cart) {
+    public static void saveReceipt(ArrayList<Item> cart) {
         //getCart method in Item class
-        List<Item> receipt = cart.getCart();
+        ArrayList<Item> receipt = cart;
 
         // Generate timestamp for the filename
         String timeStamp = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date());
