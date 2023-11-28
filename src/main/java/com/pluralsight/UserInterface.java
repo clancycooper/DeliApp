@@ -7,276 +7,223 @@ import java.util.Scanner;
 import static com.pluralsight.Toppings.*;
 
 public class UserInterface {
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        homeScreen();
     }
+    public static Scanner keyboard = new Scanner(System.in);
 
     public static void homeScreen(){
-        Scanner keyboard = new Scanner(System.in);
-
         System.out.println("Welcome to Scooby's Snack Shack! How may we serve you today?" );
-        System.out.println("[1] New order");
-        System.out.println("[2] Exit");
-
-        int selection = keyboard.nextInt();
+        System.out.print("\t[1] New order\n\t[2] Exit\nUser Input: ");
+        String selection = keyboard.nextLine();
 
         switch (selection) {
-            case 1:
+            case "1":
                 orderScreen();
                 break;
-            case 2:
-                System.out.println("Have a great day! Come back and see us!");
-                System.exit(0);
+            case "2":
+                System.out.println("\nHave a great day! Come back and see us!");
                 break;
-
             default:
-                System.out.println("Zoinks! That's not a valid selection. Please select 1 or 2.");
+                System.out.println("\nZoinks! That's not a valid selection. Please select 1 or 2.");
+                homeScreen();
+                break;
         }
-
-
-
     }
 
-
     public static void orderScreen(){
-        Scanner keyboard = new Scanner(System.in);
-
-        System.out.println("What would you like to order?");
-        System.out.println("[1] add sandwich");
-        System.out.println("[2] add drink");
-        System.out.println("[3] add chips");
-        System.out.println("[4] checkout");
-        System.out.println("[0] cancel order");
-
-        int selection = keyboard.nextInt();
-
+        System.out.println("\nWhat would you like to order?");
+        System.out.print("\t[1] Add Sandwich\n\t[2] Add Drink\n\t[3] Add Chips\n\t[4] Checkout\n\t[0] Cancel Order\nUser Input: ");
+        String selection = keyboard.nextLine();
 
         switch (selection) {
-            case 1:
-                //insert method to add sandwich
+            case "1":
                 addSandwich();
                 break;
-            case 2:
-                //insert method to add drink
+            case "2":
                 addDrink();
                 break;
-            case 3:
+            case "3":
                 addChips();
-                //insert method to add chips
-            case 4:
+                break;
+            case "4":
                 checkOut();
                 break;
-
-            case 0:
+            case "0":
+                cart.clear();
                 homeScreen();
                 break;
             default:
-                System.out.println("Zoinks! That's not a valid selection.");
+                System.out.println("\nZoinks! That's not a valid selection.");
+                orderScreen();
+                break;
         }
-
-
-
-
-
     }
 
     public static void addSandwich(){
         ArrayList<Toppings> toppings = new ArrayList<>();
-
-        Scanner keyboard = new Scanner(System.in);
-
-        System.out.println(" What size sandwich in would you like; small(4inch), medium(8inch), or 12 inch?");
-        System.out.println(" 1) small (4 inch)");
-        System.out.println(" 2) medium (8 inch)");
-        System.out.println(" 3) large (12 inch)");
-
-        int sandwichSize = keyboard.nextInt();
+        System.out.println("\nWhat size sandwich would you like? (1, 2, or 3)");
+        System.out.print("\t[1] Small/4 Inch - ($5.50)\n\t[2] Medium/8 Inch - ($7.00)\n\t[3] Large/12 Inch - ($8.50)\nUser Input: ");
+        String sizeChoice = keyboard.nextLine();
         String size = "";
-            switch(sandwichSize){
-                case 1:
-                    //small
-                    size = "small";
-                    break;
-                case 2:
-                    //medium
-                    size = "medium";
-                    break;
-                case 3:
-                    //large
-                    size ="large";
-                    break;
 
+            switch(sizeChoice){
+                case "1":
+                    //small
+                    size = "SMALL";
+                    break;
+                case "2":
+                    //medium
+                    size = "MEDIUM";
+                    break;
+                case "3":
+                    //large
+                    size ="LARGE";
+                    break;
                 default:
-                    System.out.println("That's not a valid size. Please try again.");
+                    System.out.println("\nThat's not a valid size. Please try again.");
+                    addSandwich();
+                    break;
             }
 
-
-        System.out.println("What type of bread would you like?");
-        String breadType = keyboard.next().trim().toUpperCase();
-
-        System.out.println("Would you like your sandwich toasted([1]Yes or [2]No)?");
-        String toasted = keyboard.next().trim().toUpperCase();
+        System.out.print("\nWhat type of bread would you like?\nUser Input: ");
+        String breadChoice = keyboard.nextLine().trim().toUpperCase();
+        System.out.println("\nWould you like your sandwich toasted? (1 or 2)");
+        System.out.print("\t[1] Toasted\n\t[2] Not Toasted\nUser Input: ");
+        String toastedChoice = keyboard.nextLine().trim();
         boolean isToasted = true;
-        switch(toasted){
+
+        switch(toastedChoice){
             case "1":
                 break;
             case "2":
                 isToasted = false;
+                break;
             default:
-                System.out.println("Please enter 1 or 2.");
+                System.out.println("\nRuh Roh! That's not a valid option. Please try again. ");
+                addSandwich();
+                break;
         }
 
-
-
         //Prompt user for toppings to use
-        System.out.println("Would you like Toppings([1]Yes or [2]No)?");
+        System.out.println("\nWould you like Toppings? (1 or 2)");
+        System.out.print("\t[1] Toppings\n\t[2] No Toppings\nUser Input: ");
         String response = keyboard.nextLine().toUpperCase().trim();
 
         switch(response){
             case "1":
-                ToppingsMenu(toppings);
+                toppingsMenu(toppings);
                 break;
             case "2":
-                System.out.println("Proceeding with no toppings.");
+                System.out.println("\nProceeding with No Toppings.");
                 break;
-
             default:
-                System.out.println("Jinkies! That's not a valid option.");
+                System.out.println("\nJinkies! That's not a valid option. Please try again.");
+                addSandwich();
+                break;
         }
 
-        Sandwich sandwich = new Sandwich(breadType,size,toppings, isToasted);
-
+        Sandwich sandwich = new Sandwich(breadChoice,size,toppings, isToasted);
         addToCart(sandwich);
-
+        System.out.println("\nSandwich successfully added! Now returning to the Order Screen.");
+        orderScreen();
     }
 
-     public static void ToppingsMenu(ArrayList<Toppings> newToppings){
-
-        Scanner keyboard = new Scanner(System.in);
-        System.out.print("Enter your choice: ");
-        String choice = keyboard.nextLine().toUpperCase().trim();
-        //Topping menu
-
-        switch(choice){
-            case "1":
-
-                toStringRegularToppings();
-                System.out.println("Please enter # of topping choice: ");
-                int regToppingChoice = keyboard.nextInt();
-                newToppings.add(regularToppings.get(regToppingChoice-1));
-                break;
-
-            case "2":
-
-                toStringPremiumToppings();
-                System.out.println("Please enter # of topping choice: ");
-                int PremToppingChoice = keyboard.nextInt();
-                newToppings.add((premiumToppings.get(PremToppingChoice-1)));
-                break;
-
-            case "3":
-
-                toStringMunchyToppings();
-                System.out.println("Please enter # of topping choice: ");
-                int MunToppingChoice = keyboard.nextInt();
-                newToppings.add((munchyToppings.get(MunToppingChoice-1)));
-                break;
-
-            case"4":
-                System.out.println("Exiting Toppings Selection.");
-                break;
-
-
-            default:
-                System.out.println("Ruh-Roh! That's not a valid option.");
-
-        }
-
-
+     public static void toppingsMenu(ArrayList<Toppings> newToppings){
+        try{
+            System.out.println("\nWhich toppings would you like to view?");
+            System.out.print("\t[1] Regular Toppings (No Upcharge)\n\t[2] Premium Toppings (Small Upcharge)\n\t[3] Munchy Toppings (Large Upcharge)\n\t[4] Exit Toppings Screen\nUser Input: ");
+            String choice = keyboard.nextLine().toUpperCase().trim();
+            //Topping menu
+            switch(choice){
+                case "1":
+                    toStringRegularToppings();
+                    System.out.print("\nPlease enter the # of your topping choice: ");
+                    int regToppingChoice = keyboard.nextInt();
+                    newToppings.add(regularToppings.get(regToppingChoice-1));
+                    break;
+                case "2":
+                    toStringPremiumToppings();
+                    System.out.print("\nPlease enter the # of your topping choice: ");
+                    int PremToppingChoice = keyboard.nextInt();
+                    newToppings.add((premiumToppings.get(PremToppingChoice-1)));
+                    break;
+                case "3":
+                    toStringMunchyToppings();
+                    System.out.print("\nPlease enter the # of your topping choice: ");
+                    int MunToppingChoice = keyboard.nextInt();
+                    newToppings.add((munchyToppings.get(MunToppingChoice-1)));
+                    break;
+                case"4":
+                    System.out.println("\nExiting Toppings Selection.");
+                    break;
+                default:
+                    System.out.println("\nRuh-Roh! That's not a valid option. Please try again.");
+                    toppingsMenu(newToppings);
+            }
             anotherTopping(newToppings);
-
-
-
+        }
+        catch(Exception inputError){
+            System.out.println("\nThere seems to have been an issue with your input, please try again!");
+            inputError.printStackTrace();
+            toppingsMenu(newToppings);
+        }
      }
 
     public static void anotherTopping(ArrayList<Toppings> anotherTopping) {
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Would you like to add another topping? ([1]Yes or [2]No)");
+        System.out.println("\nWould you like to add another topping? (1 or 2)");
+        System.out.print("\t[1] Yes\n\t[2] No\nUser Input: ");
         String response = keyboard.nextLine();
-
-
         switch (response) {
             case "1":
-                ToppingsMenu(anotherTopping);
+                toppingsMenu(anotherTopping);
                 break;
             case "2":
                 break;
-
             default:
-                System.out.println("Please enter valid selection.");
+                System.out.println("\nZoinks! That's not a valid option. Please try again.");
+                anotherTopping(anotherTopping);
         }
-
-
     }
 
-
-
-
-
-
     public static void addDrink(){
-
-        Scanner keyboard = new Scanner(System.in);
-
-        System.out.println("What size drink would you like?");
-        String drinkSize = keyboard.next().toUpperCase().trim();
-
-        System.out.println("What flavor drink would you like?");
-        String flavour = keyboard.next().toUpperCase().trim();
-
-        System.out.println("Would you like ice?([1]Yes or [2]No)");
-        String response = keyboard.nextLine().toUpperCase().trim();
-        boolean ice = true;
-        switch(response){
+        System.out.println("\nWhat size drink would you like? (1, 2, or 3)");
+        System.out.print("\t[1] Small ($2.00)\n\t[2] Medium($2.50)\n\t[3] Large($3.00)\nUser Input: ");
+        String drinkSizeChoice = keyboard.nextLine().toUpperCase().trim();
+        System.out.print("\nWhat flavor drink would you like?\nUser Input: ");
+        String flavourChoice = keyboard.nextLine().toUpperCase().trim();
+        System.out.print("\nWould you like ice? (1 or 2)\nUser Input: ");
+        String iceChoice = keyboard.nextLine().trim();
+        boolean hasIce = true;
+        switch(iceChoice){
             case"1":
                 break;
             case "2":
-                ice = false;
+                hasIce = false;
             default:
-                System.out.println("Please enter 1 or 2.");
+                System.out.println("\nRuh-Roh! That's not a valid option. Please try again.");
+                addDrink();
         }
-
-
-       // Drink drink = new Drink(flavour,drinkSize, ice, )
-        // addToCart(drink);
+       // Drink newDrink = new Drink(flavour,drinkSize, ice, )
+        // addToCart(newDrink);
     }
 
     public static void addChips(){
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("What kind of chips would you like?");
-        String chipType = keyboard.next().toUpperCase().trim();
-
-
-        Chips chips = new Chips(chipType);
-
+        System.out.print("\nWhat kind of chips would you like?\nUser Input: ");
+        String chipChoice = keyboard.nextLine().toUpperCase().trim();
+        Chips chips = new Chips(chipChoice);
         addToCart(chips);
-
     }
 
     public static void addToCart(Item newItem){
         cart.add(newItem);
-
-
     }
-
 
     public static void checkOut(){
 
 
     }
-
-
-
-
-
 }

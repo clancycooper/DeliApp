@@ -8,8 +8,8 @@ public class Sandwich extends Item{
     boolean toasted;
 
     public Sandwich(String breadType, String sandwichSize, ArrayList<Toppings> sandwichToppings, boolean toasted) {
-        this.breadType = breadType.trim().toLowerCase();
-        this.sandwichSize = sandwichSize.trim().toLowerCase();
+        this.breadType = breadType.trim().toUpperCase();
+        this.sandwichSize = sandwichSize.trim().toUpperCase();
         this.sandwichToppings = sandwichToppings;
         this.toasted = toasted;
     }
