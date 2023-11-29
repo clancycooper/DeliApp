@@ -2,17 +2,14 @@ package com.pluralsight;
 
 import java.util.ArrayList;
 
-public class Toppings extends Item{
+public class Toppings extends Item {
     protected String toppingName, size;
     protected boolean isMeat, isExtraMeat, isCheese, isExtraCheese, isMunchy, isExtraMunchy;
-    protected double toppingPrice;
 
-    static ArrayList<Toppings> regularToppings = new ArrayList<Toppings>();
-    static ArrayList<Toppings> premiumMeatToppings = new ArrayList<Toppings>();
-    static ArrayList<Toppings> premiumCheeseToppings = new ArrayList<Toppings>();
-    static ArrayList<Toppings> munchyToppings = new ArrayList<Toppings>();
-    static ArrayList<Toppings> dressingToppings = new ArrayList<Toppings>();
-
+    static ArrayList<Toppings> regularToppings = new ArrayList<>();
+    static ArrayList<Toppings> premiumMeatToppings = new ArrayList<>();
+    static ArrayList<Toppings> premiumCheeseToppings = new ArrayList<>();
+    static ArrayList<Toppings> munchyToppings = new ArrayList<>();
 
     public Toppings(String toppingName, String size, boolean isMeat, boolean isExtraMeat, boolean isCheese, boolean isExtraCheese, boolean isMunchy, boolean isExtraMunchy) {
         this.toppingName = toppingName;
@@ -29,64 +26,16 @@ public class Toppings extends Item{
         return this.toppingName;
     }
 
-    public void setToppingName(String toppingName) {
-        this.toppingName = toppingName;
-    }
-
-    public boolean isMeat() {
-        return isMeat;
-    }
-
-    public void setMeat(boolean meat) {
-        isMeat = meat;
-    }
-
-    public boolean isExtraMeat() {
-        return isExtraMeat;
-    }
-
     public void setExtraMeat(boolean extraMeat) {
         isExtraMeat = extraMeat;
-    }
-
-    public boolean isCheese() {
-        return isCheese;
-    }
-
-    public void setCheese(boolean cheese) {
-        isCheese = cheese;
-    }
-
-    public boolean isExtraCheese() {
-        return isExtraCheese;
     }
 
     public void setExtraCheese(boolean extraCheese) {
         isExtraCheese = extraCheese;
     }
 
-    public boolean isMunchy() {
-        return isMunchy;
-    }
-
-    public void setMunchy(boolean munchy) {
-        isMunchy = munchy;
-    }
-
-    public boolean isExtraMunchy() {
-        return isExtraMunchy;
-    }
-
     public void setExtraMunchy(boolean extraMunchy) {
         isExtraMunchy = extraMunchy;
-    }
-
-    public double getPrice(String sandwichSize) {
-        return 0;
-    }
-
-    public String getSize() {
-        return size;
     }
 
     public void setSize(String size) {
@@ -96,7 +45,7 @@ public class Toppings extends Item{
     public static void toStringRegularToppings() {
         int temp = 1;
         System.out.println("\nList of Regular Toppings: ");
-        for(Toppings topping: regularToppings){
+        for (Toppings topping : regularToppings) {
             System.out.println(temp + ".) " + topping.getToppingName());
             temp++;
         }
@@ -105,16 +54,17 @@ public class Toppings extends Item{
     public static void toStringMeatToppings() {
         int temp = 1;
         System.out.println("\nList of Premium Meat Toppings: ");
-        for(Toppings topping: premiumMeatToppings){
+        for (Toppings topping : premiumMeatToppings) {
             System.out.println(temp + ".) " + topping.getToppingName());
             temp++;
 
         }
     }
+
     public static void toStringCheeseToppings() {
         int temp = 1;
         System.out.println("\nList of Premium Cheese Toppings: ");
-        for(Toppings topping: premiumCheeseToppings){
+        for (Toppings topping : premiumCheeseToppings) {
             System.out.println(temp + ".) " + topping.getToppingName());
             temp++;
 
@@ -124,7 +74,7 @@ public class Toppings extends Item{
     public static void toStringMunchyToppings() {
         int temp = 1;
         System.out.println("\nList of Munchy Toppings: ");
-        for(Toppings topping: munchyToppings){
+        for (Toppings topping : munchyToppings) {
             System.out.println(temp + ".) " + topping.getToppingName());
             temp++;
 
@@ -179,7 +129,6 @@ public class Toppings extends Item{
 
     @Override
     public String toString() {
-
         return toppingName;
     }
 }

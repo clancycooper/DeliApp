@@ -6,7 +6,7 @@ public class Drink extends Item {
     protected String drinkSize, drinkFlavor;
     protected boolean hasIce;
 
-    static ArrayList<Drink> drinkFlavors = new ArrayList<Drink>();
+    static ArrayList<Drink> drinkFlavors = new ArrayList<>();
 
     public Drink(String drinkSize, String drinkFlavor, boolean hasIce) {
         this.drinkSize = drinkSize;
@@ -14,39 +14,18 @@ public class Drink extends Item {
         this.hasIce = hasIce;
     }
 
-    public Drink(String drinkFlavor){
+    public Drink(String drinkFlavor) {
         this.drinkFlavor = drinkFlavor;
-    }
-
-    public String getDrinkSize() {
-        return drinkSize;
-    }
-
-    public void setDrinkSize(String drinkSize) {
-        this.drinkSize = drinkSize;
     }
 
     public String getDrinkFlavor() {
         return drinkFlavor;
     }
 
-    public void setDrinkFlavor(String drinkFlavor) {
-        this.drinkFlavor = drinkFlavor;
-    }
-
-    public boolean isHasIce() {
-        return hasIce;
-    }
-
-    public void setHasIce(boolean hasIce) {
-        this.hasIce = hasIce;
-    }
-
-
     public static void toStringDrinkFlavors() {
         int temp = 1;
         System.out.println("\nList of Drink Flavors: ");
-        for(Drink flavors: drinkFlavors){
+        for (Drink flavors : drinkFlavors) {
             System.out.println(temp + ".) " + flavors.getDrinkFlavor());
             temp++;
         }
@@ -68,17 +47,14 @@ public class Drink extends Item {
 
     @Override
     public String toString() {
-        if(hasIce){
-
-            return "Drink: " +
-                    drinkSize + ", " +
+        if (hasIce) {
+            return drinkSize + ", " +
                     drinkFlavor + ", " +
-                   "On the rocks(Ice)";
-
+                    "On the rocks(Ice)";
+        } else{
+            return drinkSize + ", " +
+                    drinkFlavor + ", " +
+                    "No Ice";
         }
-        return "Drink: " +
-                  drinkSize + ", " +
-                  drinkFlavor + ", " +
-                 "No Ice";
     }
 }
