@@ -1,0 +1,11 @@
+Order Receipt
+Date: 20231129-134123
+
+- Your Order:
+Bread: PUMPERNICKEL
+Size: MEDIUM
+Toppings: [Green Peppers, Salami, Grilled Chicken, Bacon, Fried Pickles]
+Toasted
+- Drink: MEDIUM, Ale 8, No Ice
+- Chips: Sour Cream & Cheddar Ruffles
+Your Order Total $15.75
