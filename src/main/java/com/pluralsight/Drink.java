@@ -5,15 +5,17 @@ import java.util.ArrayList;
 public class Drink extends Item {
     protected String drinkSize, drinkFlavor;
     protected boolean hasIce;
-    protected double drinkCost;
 
-    ArrayList<Drink> drinkFlavors;
+    static ArrayList<Drink> drinkFlavors = new ArrayList<Drink>();
 
-    public Drink(String drinkSize, String drinkFlavor, boolean hasIce, double drinkCost) {
+    public Drink(String drinkSize, String drinkFlavor, boolean hasIce) {
         this.drinkSize = drinkSize;
         this.drinkFlavor = drinkFlavor;
         this.hasIce = hasIce;
-        this.drinkCost = drinkCost;
+    }
+
+    public Drink(String drinkFlavor){
+        this.drinkFlavor = drinkFlavor;
     }
 
     public String getDrinkSize() {
@@ -40,19 +42,13 @@ public class Drink extends Item {
         this.hasIce = hasIce;
     }
 
-    public double getDrinkCost() {
-        return drinkCost;
-    }
 
-    public void setDrinkCost(double drinkCost) {
-        this.drinkCost = drinkCost;
-    }
-
-    public void toStringDrinkFlavors() {
+    public static void toStringDrinkFlavors() {
         int temp = 1;
-        System.out.println("List of Drink Flavors: ");
+        System.out.println("\nList of Drink Flavors: ");
         for(Drink flavors: drinkFlavors){
             System.out.println(temp + ".) " + flavors.getDrinkFlavor());
+            temp++;
         }
     }
 
@@ -68,5 +64,14 @@ public class Drink extends Item {
             default:
                 return 0.0; //default for if user chooses no drink option
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Drink{" +
+                "drinkSize='" + drinkSize + '\'' +
+                ", drinkFlavor='" + drinkFlavor + '\'' +
+                ", hasIce=" + hasIce +
+                '}';
     }
 }

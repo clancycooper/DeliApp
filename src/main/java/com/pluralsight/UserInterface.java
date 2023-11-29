@@ -4,17 +4,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
+import static com.pluralsight.ReceiptManager.displayOrderDetails;
 import static com.pluralsight.Toppings.*;
+import static com.pluralsight.Drink.*;
+import static com.pluralsight.Chips.*;
 
 public class UserInterface {
-
-    public static void main(String[] args) {
-        homeScreen();
-    }
     public static Scanner keyboard = new Scanner(System.in);
 
     public static void homeScreen(){
-        System.out.println("Welcome to Scooby's Snack Shack! How may we serve you today?" );
+        System.out.println("\nWelcome to Scooby's Snack Shack! How may we serve you today?" );
         System.out.print("\t[1] New order\n\t[2] Exit\nUser Input: ");
         String selection = keyboard.nextLine();
 
@@ -113,7 +112,7 @@ public class UserInterface {
 
         switch(response){
             case "1":
-                toppingsMenu(toppings);
+                toppingsMenu(toppings, size);
                 break;
             case "2":
                 System.out.println("\nProceeding with No Toppings.");
@@ -130,10 +129,10 @@ public class UserInterface {
         orderScreen();
     }
 
-     public static void toppingsMenu(ArrayList<Toppings> newToppings){
+     public static void toppingsMenu(ArrayList<Toppings> newToppings, String size){
         try{
             System.out.println("\nWhich toppings would you like to view?");
-            System.out.print("\t[1] Regular Toppings (No Upcharge)\n\t[2] Premium Toppings (Small Upcharge)\n\t[3] Munchy Toppings (Large Upcharge)\n\t[4] Exit Toppings Screen\nUser Input: ");
+            System.out.print("\t[1] Regular Toppings (No Upcharge)\n\t[2] Meat Toppings (Small Upcharge)\n\t[3] Cheese Toppings (Small Upcharge)\n\t[4] Munchy Toppings (Large Upcharge)\n\t[5] Exit Toppings Screen\nUser Input: ");
             String choice = keyboard.nextLine().toUpperCase().trim();
             //Topping menu
             switch(choice){
@@ -141,82 +140,139 @@ public class UserInterface {
                     toStringRegularToppings();
                     System.out.print("\nPlease enter the # of your topping choice: ");
                     int regToppingChoice = keyboard.nextInt();
+                    regularToppings.get(regToppingChoice-1).setSize(size);
                     newToppings.add(regularToppings.get(regToppingChoice-1));
+                    keyboard.nextLine();
+                    anotherTopping(newToppings, size);
                     break;
                 case "2":
-                    toStringPremiumToppings();
+                    toStringMeatToppings();
                     System.out.print("\nPlease enter the # of your topping choice: ");
-                    int PremToppingChoice = keyboard.nextInt();
-                    newToppings.add((premiumToppings.get(PremToppingChoice-1)));
+                    int meatToppingChoice = keyboard.nextInt();
+                    for(Toppings toppings: newToppings){
+                        if(toppings.isMeat){
+                            premiumMeatToppings.get(meatToppingChoice-1).setExtraMeat(true);
+                            break;
+                        }
+                    }
+                    newToppings.add((premiumMeatToppings.get(meatToppingChoice-1)));
+                    keyboard.nextLine();
+                    anotherTopping(newToppings, size);
                     break;
                 case "3":
+                    toStringCheeseToppings();
+                    System.out.print("\nPlease enter the # of your topping choice: ");
+                    int cheeseToppingChoice = keyboard.nextInt();
+                    for(Toppings toppings: newToppings){
+                        if(toppings.isCheese){
+                            premiumMeatToppings.get(cheeseToppingChoice-1).setExtraCheese(true);
+                            break;
+                        }
+                    }
+                    newToppings.add((premiumMeatToppings.get(cheeseToppingChoice-1)));
+                    keyboard.nextLine();
+                    anotherTopping(newToppings, size);
+                    break;
+                case "4":
                     toStringMunchyToppings();
                     System.out.print("\nPlease enter the # of your topping choice: ");
                     int MunToppingChoice = keyboard.nextInt();
                     newToppings.add((munchyToppings.get(MunToppingChoice-1)));
+                    keyboard.nextLine();
+                    anotherTopping(newToppings, size);
                     break;
-                case"4":
+                case"5":
                     System.out.println("\nExiting Toppings Selection.");
                     break;
                 default:
                     System.out.println("\nRuh-Roh! That's not a valid option. Please try again.");
-                    toppingsMenu(newToppings);
+                    toppingsMenu(newToppings, size);
             }
-            anotherTopping(newToppings);
         }
         catch(Exception inputError){
             System.out.println("\nThere seems to have been an issue with your input, please try again!");
             inputError.printStackTrace();
-            toppingsMenu(newToppings);
+            toppingsMenu(newToppings, size);
         }
      }
 
-    public static void anotherTopping(ArrayList<Toppings> anotherTopping) {
-        Scanner keyboard = new Scanner(System.in);
+    public static void anotherTopping(ArrayList<Toppings> anotherTopping, String size) {
         System.out.println("\nWould you like to add another topping? (1 or 2)");
         System.out.print("\t[1] Yes\n\t[2] No\nUser Input: ");
         String response = keyboard.nextLine();
         switch (response) {
             case "1":
-                toppingsMenu(anotherTopping);
+                toppingsMenu(anotherTopping, size);
                 break;
             case "2":
                 break;
             default:
                 System.out.println("\nZoinks! That's not a valid option. Please try again.");
-                anotherTopping(anotherTopping);
+                anotherTopping(anotherTopping, size);
         }
     }
 
     public static void addDrink(){
-        System.out.println("\nWhat size drink would you like? (1, 2, or 3)");
-        System.out.print("\t[1] Small ($2.00)\n\t[2] Medium($2.50)\n\t[3] Large($3.00)\nUser Input: ");
-        String drinkSizeChoice = keyboard.nextLine().toUpperCase().trim();
-        System.out.print("\nWhat flavor drink would you like?\nUser Input: ");
-        String flavourChoice = keyboard.nextLine().toUpperCase().trim();
-        System.out.print("\nWould you like ice? (1 or 2)\nUser Input: ");
-        String iceChoice = keyboard.nextLine().trim();
-        boolean hasIce = true;
-        switch(iceChoice){
-            case"1":
-                break;
-            case "2":
-                hasIce = false;
-            default:
-                System.out.println("\nRuh-Roh! That's not a valid option. Please try again.");
-                addDrink();
+        try{
+            System.out.println("\nWhat size drink would you like? (1, 2, or 3)");
+            System.out.print("\t[1] Small ($2.00)\n\t[2] Medium($2.50)\n\t[3] Large($3.00)\nUser Input: ");
+            String drinkSizeChoice = keyboard.nextLine().trim(), size;
+            switch(drinkSizeChoice){
+                case "1":
+                    size = "SMALL";
+                    break;
+                case "2":
+                    size = "MEDIUM";
+                    break;
+                case "3":
+                    size = "LARGE";
+                    break;
+                default:
+                    System.out.println("\nZoinks! That's not a valid option. Please try again.");
+                    addDrink();
+            }
+            toStringDrinkFlavors();
+            System.out.print("\nPlease enter the # of your drink choice: ");
+            String flavourChoice = (drinkFlavors.get((Integer.parseInt(keyboard.nextLine().trim()))-1)).getDrinkFlavor();
+            System.out.print("\nWould you like ice? (1 or 2)");
+            System.out.print("\n\t[1] Yes\n\t[2] No\nUser Input: ");
+            String iceChoice = keyboard.nextLine().trim();
+            boolean hasIce = true;
+            switch(iceChoice){
+                case"1":
+                    break;
+                case "2":
+                    hasIce = false;
+                    break;
+                default:
+                    System.out.println("\nRuh-Roh! That's not a valid option. Please try again.");
+                    addDrink();
+            }
+            Drink newDrink = new Drink(drinkSizeChoice, flavourChoice, hasIce);
+            addToCart(newDrink);
+            System.out.println("\nDrink successfully added! Now returning to the main menu.");
+            orderScreen();
         }
-        // Drink newDrink = new Drink(flavour,drinkSize, ice, )
-        // addToCart(newDrink);
-        //Add Options for Drink Flavors and Chip Flavors
+        catch(Exception inputError){
+            System.out.println("\nPlease enter a valid option! Returning to drink menu.");
+            addDrink();
+        }
     }
 
     public static void addChips(){
-        Scanner keyboard = new Scanner(System.in);
-        System.out.print("\nWhat kind of chips would you like?\nUser Input: ");
-        String chipChoice = keyboard.nextLine().toUpperCase().trim();
-        Chips chips = new Chips(chipChoice);
-        addToCart(chips);
+        try{
+            toStringChipFlavors();
+            System.out.print("\nPlease enter the # of your chip choice: ");
+            String chipChoice = (chipFlavors.get((Integer.parseInt(keyboard.nextLine().trim()))-1)).getChipType();
+            Chips chips = new Chips(chipChoice);
+            addToCart(chips);
+            System.out.println("\nChips successfully added! Now returning to the main menu.");
+            orderScreen();
+        }
+        catch(Exception inputError){
+            System.out.println("\nPlease enter a valid option! Returning to drink menu.");
+            addDrink();
+        }
     }
 
     public static void addToCart(Item newItem){
@@ -224,7 +280,6 @@ public class UserInterface {
     }
 
     public static void checkOut(){
-
-
+        displayOrderDetails(cart);
     }
 }

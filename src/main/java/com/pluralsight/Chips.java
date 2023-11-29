@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Chips extends Item {
     protected String chipType;
 
-    ArrayList<Chips> chipFlavors;
+    static ArrayList<Chips> chipFlavors = new ArrayList<Chips>();
 
     public Chips(String chipType) {
         this.chipType = chipType;
@@ -19,11 +19,12 @@ public class Chips extends Item {
         this.chipType = chipType;
     }
 
-    public void toStringChipFlavors() {
+    public static void toStringChipFlavors() {
         int temp = 1;
-        System.out.println("List of Chip Flavors: ");
+        System.out.println("\nList of Chip Flavors: ");
         for(Chips flavors: chipFlavors){
             System.out.println(temp + ".) " + flavors.getChipType());
+            temp++;
         }
     }
 
@@ -34,5 +35,12 @@ public class Chips extends Item {
         } else {
         return 0.0;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Chips{" +
+                "chipType='" + chipType + '\'' +
+                '}';
     }
 }
