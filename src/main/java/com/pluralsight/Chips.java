@@ -39,8 +39,6 @@ public class Chips extends Item {
 
     @Override
     public String toString() {
-        return "Chips{" +
-                "chipType='" + chipType + '\'' +
-                '}';
+        return "Chips: " + chipType;
     }
 }

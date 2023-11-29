@@ -1,0 +1,7 @@
+Order Receipt
+Date: 20231129-090627
+
+- Sandwich{breadType:'WHITE
+, sandwichSize:'MEDIUM
+, sandwichToppings:[Toppings{toppingName='Salami', toppingPrice=0.0}, Toppings{toppingName='Crab Rangoon', toppingPrice=0.0}]
+, toasted:true}

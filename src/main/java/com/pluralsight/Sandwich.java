@@ -2,7 +2,7 @@ package com.pluralsight;
 
 import java.util.ArrayList;
 
-public class Sandwich extends Item{
+public class Sandwich extends Item {
     String breadType, sandwichSize;
     ArrayList<Toppings> sandwichToppings;
     boolean toasted;
@@ -49,33 +49,64 @@ public class Sandwich extends Item{
     @Override
     public double getPrice() {
         double sandwichPrice = 0;
-            switch(sandwichSize){
-                case "small":
-                    sandwichPrice = 5.50;
-                    for(Toppings topping: sandwichToppings) {
-                       sandwichPrice += topping.getPrice();
-                    }
-                case "medium":
-                    sandwichPrice = 7.00;
-                    for(Toppings topping: sandwichToppings) {
-                        sandwichPrice += topping.getPrice();
-                    }
-                case "large":
-                    sandwichPrice = 8.50;
-                    for(Toppings topping: sandwichToppings) {
-                        sandwichPrice += topping.getPrice();
-                    }
-            }
+        switch (sandwichSize) {
+            case "small":
+                sandwichPrice = 5.50;
+                for (Toppings topping : sandwichToppings) {
+                    sandwichPrice += topping.getPrice();
+                }
+            case "medium":
+                sandwichPrice = 7.00;
+                for (Toppings topping : sandwichToppings) {
+                    sandwichPrice += topping.getPrice();
+                }
+            case "large":
+                sandwichPrice = 8.50;
+                for (Toppings topping : sandwichToppings) {
+                    sandwichPrice += topping.getPrice();
+                }
+        }
         return sandwichPrice;
     }
 
     @Override
     public String toString() {
-        return "Sandwich{" +
-                "breadType='" + breadType + '\'' +
-                ", sandwichSize='" + sandwichSize + '\'' +
-                ", sandwichToppings=" + sandwichToppings +
-                ", toasted=" + toasted +
-                '}';
+        if (isToasted()) {
+            if (sandwichToppings.isEmpty()) {
+                return "Your Order:" + "\n" +
+                        "Bread: " + breadType + "\n" +
+                        "Size: " + sandwichSize + "\n" +
+                        "No Toppings" + "\n" +
+                        "Toasted";
+            } else {
+                return "Your Order:" + "\n" +
+                        "Bread: " + breadType + "\n" +
+                        "Size: " + sandwichSize + "\n" +
+                        "Toppings: " + sandwichToppings + "\n" +
+                        "Toasted";
+
+            }
+
+        } else {
+            if (sandwichToppings.isEmpty()) {
+
+                return "Your Order:" + "\n" +
+                        "Bread: " + breadType + "\n" +
+                        "Size: " + sandwichSize + "\n" +
+                        "No Toppings" + "\n" +
+                        "Not Toasted";
+
+            } else {
+
+
+                return "Your Order:" + "\n" +
+                        "Bread: " + breadType + "\n" +
+                        "Size: " + sandwichSize + "\n" +
+                        "Toppings: " + sandwichToppings.toString() + "\n" +
+                        "Not Toasted";
+
+            }
+
+        }
     }
 }

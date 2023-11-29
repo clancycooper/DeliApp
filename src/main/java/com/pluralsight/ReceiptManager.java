@@ -21,6 +21,8 @@ public class ReceiptManager {
         System.out.println("Please review your order, and type CONFIRM or CANCEL below.");
         for (Item item : order) {
             System.out.println("- " + item.toString());
+
+
         }
         Scanner scanner = new Scanner(System.in);
         String checkoutChoice = scanner.nextLine().toUpperCase().trim();
