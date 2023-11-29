@@ -3,7 +3,6 @@ package com.pluralsight;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -64,7 +63,7 @@ public class ReceiptManager {
                 writer.write("- " + item.toString());
                 writer.newLine();
             }
-            writer.write(Double.toString(getTotal()));
+            writer.write(receipt.toString());
 
             System.out.println("Receipt generated successfully: " + fileName);
         } catch (IOException e) {

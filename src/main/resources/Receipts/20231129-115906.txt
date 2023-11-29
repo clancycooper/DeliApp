@@ -1,0 +1,15 @@
+Order Receipt
+Date: 20231129-115906
+
+- Your Order:
+Bread: WHITE
+Size: LARGE
+Toppings: [Grilled Chicken, Mashed Potatoes, Mozzarella Sticks]
+Toasted
+- Drink: LARGE, Ale 8, No Ice
+- Chips: Nacho Cheese Doritos
+[Your Order:
+Bread: WHITE
+Size: LARGE
+Toppings: [Grilled Chicken, Mashed Potatoes, Mozzarella Sticks]
+Toasted, Drink: LARGE, Ale 8, No Ice, Chips: Nacho Cheese Doritos]
