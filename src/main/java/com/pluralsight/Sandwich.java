@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Sandwich extends Item {
@@ -50,17 +51,17 @@ public class Sandwich extends Item {
     public double getPrice() {
         double sandwichPrice = 0;
         switch (sandwichSize) {
-            case "small":
+            case "SMALL":
                 sandwichPrice = 5.50;
                 for (Toppings topping : sandwichToppings) {
                     sandwichPrice += topping.getPrice();
                 }
-            case "medium":
+            case "MEDIUM":
                 sandwichPrice = 7.00;
                 for (Toppings topping : sandwichToppings) {
                     sandwichPrice += topping.getPrice();
                 }
-            case "large":
+            case "LARGE":
                 sandwichPrice = 8.50;
                 for (Toppings topping : sandwichToppings) {
                     sandwichPrice += topping.getPrice();

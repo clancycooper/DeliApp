@@ -86,7 +86,7 @@ public class UserInterface {
                     break;
             }
 
-        System.out.print("\nWhat type of bread would you like?\nUser Input: ");
+        System.out.print("\nWhat type of bread would you like? \n\tWhite, Wheat, Ciabatta, Italian Herb and Cheese, Pumpernickel \nUser Input: ");
         String breadChoice = keyboard.nextLine().trim().toUpperCase();
         System.out.println("\nWould you like your sandwich toasted? (1 or 2)");
         System.out.print("\t[1] Toasted\n\t[2] Not Toasted\nUser Input: ");
@@ -132,7 +132,35 @@ public class UserInterface {
      public static void toppingsMenu(ArrayList<Toppings> newToppings, String size){
         try{
             System.out.println("\nWhich toppings would you like to view?");
-            System.out.print("\t[1] Regular Toppings (No Upcharge)\n\t[2] Meat Toppings (Small Upcharge)\n\t[3] Cheese Toppings (Small Upcharge)\n\t[4] Munchy Toppings (Large Upcharge)\n\t[5] Exit Toppings Screen\nUser Input: ");
+            switch (size) {
+                case "SMAll" :
+                    System.out.print("\t[1] Regular Toppings (Included)" +
+                            "\n\t[2] Meat Toppings ($1.00)" +
+                            "\n\t[3] Cheese Toppings ($ .75)" +
+                            "\n\t[4] Munchy Toppings ($1.25)" +
+                            "\n\t[5] Exit Toppings Screen" +
+                            "\nUser Input: ");
+                    break;
+
+                case "MEDIUM" :
+                    System.out.print("\t[1] Regular Toppings (Included)" +
+                            "\n\t[2] Meat Toppings ($2.00)" +
+                            "\n\t[3] Cheese Toppings ($1.50)" +
+                            "\n\t[4] Munchy Toppings ($2.50)" +
+                            "\n\t[5] Exit Toppings Screen" +
+                            "\nUser Input: ");
+                    break;
+
+                case "LARGE" :
+                    System.out.print("\t[1] Regular Toppings (Included)" +
+                            "\n\t[2] Meat Toppings ($3.00)" +
+                            "\n\t[3] Cheese Toppings ($2.25)" +
+                            "\n\t[4] Munchy Toppings ($3.75)" +
+                            "\n\t[5] Exit Toppings Screen" +
+                            "\nUser Input: ");
+                    break;
+            }
+
             String choice = keyboard.nextLine().toUpperCase().trim();
             //Topping menu
             switch(choice){

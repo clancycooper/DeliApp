@@ -1,0 +1,11 @@
+Order Receipt
+Date: 20231129-104535
+
+- Your Order:
+Bread: WHITE
+Size: MEDIUM
+Toppings: [Fries, Mac & Cheese]
+Toasted
+- Drink: LARGE, Ale 8, On the rocks(Ice)
+- Chips: Sour Cream & Cheddar Ruffles
+15.5
