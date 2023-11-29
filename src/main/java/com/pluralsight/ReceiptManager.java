@@ -24,7 +24,7 @@ public class ReceiptManager {
             System.out.println("- " + item.toString());
 
         }
-        System.out.println(getTotal());
+        System.out.println("Your Order Total $" + getTotal());
 
         Scanner scanner = new Scanner(System.in);
         String checkoutChoice = scanner.nextLine().toUpperCase().trim();
@@ -63,7 +63,7 @@ public class ReceiptManager {
                 writer.write("- " + item.toString());
                 writer.newLine();
             }
-            writer.write(receipt.toString());
+            writer.write("Your Order Total $" + getTotal());
 
             System.out.println("Receipt generated successfully: " + fileName);
         } catch (IOException e) {

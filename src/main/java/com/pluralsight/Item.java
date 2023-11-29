@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public abstract class Item implements ItemFunctions{
-    DecimalFormat df = new DecimalFormat("#,##0.00");
+     static DecimalFormat df = new DecimalFormat("#,##0.00");
     static ArrayList<Item> cart = new ArrayList<Item>();
 
     public Item() {
@@ -16,12 +16,8 @@ public abstract class Item implements ItemFunctions{
         for (Item item : cart){
             total += item.getPrice();
         }
-        return total;
+        return Double.parseDouble(df.format(total));
     }
 
-    @Override
-    public String toString() {
 
-        return "Your Order Total $" + df.format(getTotal());
-    }
 }
