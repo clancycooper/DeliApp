@@ -4,25 +4,18 @@ import java.util.ArrayList;
 
 public class Chips extends Item {
     protected String chipType;
-
-    static ArrayList<Chips> chipFlavors = new ArrayList<Chips>();
-
+    static ArrayList<Chips> chipFlavors = new ArrayList<>();
     public Chips(String chipType) {
         this.chipType = chipType;
     }
-
     public String getChipType() {
         return chipType;
-    }
-
-    public void setChipType(String chipType) {
-        this.chipType = chipType;
     }
 
     public static void toStringChipFlavors() {
         int temp = 1;
         System.out.println("\nList of Chip Flavors: ");
-        for(Chips flavors: chipFlavors){
+        for (Chips flavors : chipFlavors) {
             System.out.println(temp + ".) " + flavors.getChipType());
             temp++;
         }
@@ -31,14 +24,14 @@ public class Chips extends Item {
     @Override
     public double getPrice() {
         if (chipType != null && !chipType.isEmpty()) {
-                return 1.50;
+            return 1.50;
         } else {
-        return 0.0;
+            return 0.0;
         }
     }
 
     @Override
     public String toString() {
-        return "Chips: " + chipType;
+        return chipType;
     }
 }

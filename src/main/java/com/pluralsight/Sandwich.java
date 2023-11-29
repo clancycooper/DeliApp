@@ -1,12 +1,12 @@
 package com.pluralsight;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Sandwich extends Item {
-    String breadType, sandwichSize;
-    ArrayList<Toppings> sandwichToppings;
-    boolean toasted;
+    static String breadType;
+    static String sandwichSize;
+    static ArrayList<Toppings> sandwichToppings = new ArrayList<>();
+    static boolean toasted;
 
     public Sandwich(String breadType, String sandwichSize, ArrayList<Toppings> sandwichToppings, boolean toasted) {
         this.breadType = breadType.trim().toUpperCase();
@@ -14,37 +14,76 @@ public class Sandwich extends Item {
         this.sandwichToppings = sandwichToppings;
         this.toasted = toasted;
     }
+    public Sandwich(){
 
-    public String getBreadType() {
-        return breadType;
     }
 
     public void setBreadType(String breadType) {
         this.breadType = breadType;
     }
 
-    public String getSandwichSize() {
-        return sandwichSize;
-    }
-
     public void setSandwichSize(String sandwichSize) {
         this.sandwichSize = sandwichSize;
     }
 
-    public ArrayList<Toppings> getSandwichToppings() {
-        return sandwichToppings;
-    }
-
-    public void setSandwichToppings(ArrayList<Toppings> sandwichToppings) {
-        this.sandwichToppings = sandwichToppings;
-    }
-
-    public boolean isToasted() {
-        return toasted;
+    public static void setSandwichToppings(ArrayList<Toppings> sandwichToppings) {
+        Sandwich.sandwichToppings = sandwichToppings;
     }
 
     public void setToasted(boolean toasted) {
         this.toasted = toasted;
+    }
+
+    public static boolean isToasted() {
+        return toasted;
+    }
+
+    public static boolean hasAnyMeat(ArrayList<Toppings> newToppings){
+        if(newToppings.isEmpty())
+            return false;
+        else {
+            int temp = newToppings.size();
+            for (Toppings topping : newToppings) {
+                if (topping.isMeat)
+                    temp--;
+            }
+            if (temp == newToppings.size())
+                return false;
+            else
+                return true;
+        }
+    }
+
+    public static boolean hasAnyCheese(ArrayList<Toppings> newToppings){
+        if(newToppings.isEmpty())
+            return false;
+        else {
+            int temp = newToppings.size();
+            for (Toppings topping : newToppings) {
+                if (topping.isCheese)
+                    temp--;
+            }
+            if (temp == newToppings.size())
+                return false;
+            else
+                return true;
+        }
+    }
+
+    public static boolean hasAnyMunchy(ArrayList<Toppings> newToppings){
+        if(newToppings.isEmpty())
+            return false;
+        else {
+            int temp = newToppings.size();
+            for (Toppings topping : newToppings) {
+                if (topping.isMunchy)
+                    temp--;
+            }
+            if (temp == newToppings.size())
+                return false;
+            else
+                return true;
+        }
     }
 
     @Override
@@ -70,42 +109,30 @@ public class Sandwich extends Item {
         return sandwichPrice;
     }
 
-    @Override
-    public String toString() {
+    public static String sandwichToString(Item sandwich) {
         if (isToasted()) {
             if (sandwichToppings.isEmpty()) {
-                return "Your Order:" + "\n" +
-                        "Bread: " + breadType + "\n" +
-                        "Size: " + sandwichSize + "\n" +
-                        "No Toppings" + "\n" +
+                return "Bread: " + breadType + "\n\t" +
+                        "Size: " + sandwichSize + "\n\t" +
+                        "No Toppings" + "\n\t" +
                         "Toasted";
             } else {
-                return "Your Order:" + "\n" +
-                        "Bread: " + breadType + "\n" +
-                        "Size: " + sandwichSize + "\n" +
-                        "Toppings: " + sandwichToppings + "\n" +
+                return "Bread: " + breadType + "\n\t" +
+                        "Size: " + sandwichSize + "\n\t" +
+                        "Toppings: " + sandwichToppings + "\n\t" +
                         "Toasted";
-
             }
-
         } else {
             if (sandwichToppings.isEmpty()) {
-
-                return "Your Order:" + "\n" +
-                        "Bread: " + breadType + "\n" +
-                        "Size: " + sandwichSize + "\n" +
-                        "No Toppings" + "\n" +
+                return "Bread: " + breadType + "\n\t" +
+                        "Size: " + sandwichSize + "\n\t" +
+                        "No Toppings" + "\n\t" +
                         "Not Toasted";
-
             } else {
-
-
-                return "Your Order:" + "\n" +
-                        "Bread: " + breadType + "\n" +
-                        "Size: " + sandwichSize + "\n" +
-                        "Toppings: " + sandwichToppings.toString() + "\n" +
+                return "Bread: " + breadType + "\n\t" +
+                        "Size: " + sandwichSize + "\n\t" +
+                        "Toppings: " + sandwichToppings + "\n\t" +
                         "Not Toasted";
-
             }
 
         }

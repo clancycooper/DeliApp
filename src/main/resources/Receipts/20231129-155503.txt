@@ -1,0 +1,16 @@
+Order Receipt
+Date: 20231129-155503
+
+Your Order: 
+Chips 1.) 
+	Cool Ranch Doritos
+Drink 1.) 
+	SMALL, Coca Cola, On the rocks(Ice)
+Drink 2.) 
+	SMALL, Sprite, No Ice
+Sandwich 1.) 
+	Bread: WHEAT
+	Size: SMALL
+	No Toppings
+	Toasted
+Your Order Total $14.0
