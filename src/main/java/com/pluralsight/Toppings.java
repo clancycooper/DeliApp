@@ -176,5 +176,11 @@ public class Toppings extends Item{
         }
         return 0;
     }
+
+    @Override
+    public String toString() {
+
+        return toppingName;
+    }
 }
 

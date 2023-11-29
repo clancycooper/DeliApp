@@ -68,10 +68,17 @@ public class Drink extends Item {
 
     @Override
     public String toString() {
-        return "Drink{" +
-                "drinkSize='" + drinkSize + '\'' +
-                ", drinkFlavor='" + drinkFlavor + '\'' +
-                ", hasIce=" + hasIce +
-                '}';
+        if(hasIce){
+
+            return "Drink: " +
+                    drinkSize + ", " +
+                    drinkFlavor + ", " +
+                   "On the rocks(Ice)";
+
+        }
+        return "Drink: " +
+                  drinkSize + ", " +
+                  drinkFlavor + ", " +
+                 "No Ice";
     }
 }

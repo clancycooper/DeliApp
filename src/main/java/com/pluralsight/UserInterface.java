@@ -216,7 +216,7 @@ public class UserInterface {
         try{
             System.out.println("\nWhat size drink would you like? (1, 2, or 3)");
             System.out.print("\t[1] Small ($2.00)\n\t[2] Medium($2.50)\n\t[3] Large($3.00)\nUser Input: ");
-            String drinkSizeChoice = keyboard.nextLine().trim(), size;
+            String drinkSizeChoice = keyboard.nextLine().trim(), size="";
             switch(drinkSizeChoice){
                 case "1":
                     size = "SMALL";
@@ -248,7 +248,7 @@ public class UserInterface {
                     System.out.println("\nRuh-Roh! That's not a valid option. Please try again.");
                     addDrink();
             }
-            Drink newDrink = new Drink(drinkSizeChoice, flavourChoice, hasIce);
+            Drink newDrink = new Drink(size, flavourChoice, hasIce);
             addToCart(newDrink);
             System.out.println("\nDrink successfully added! Now returning to the main menu.");
             orderScreen();
