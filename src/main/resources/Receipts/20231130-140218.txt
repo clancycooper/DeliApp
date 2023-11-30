@@ -1,0 +1,24 @@
+Order Receipt
+Date: 20231130-140218
+
+Your Order: 
+
+Chips 1.) 
+	Nacho Cheese Doritos
+Drink 1.) 
+	MEDIUM, Arnold Palmer, No Ice
+Sandwich 1.) 
+	Signature: Scooby Stack
+	Size: EXTRA LARGE
+	Bread: ALL BREAD
+	Not Toasted
+	Toppings: [Lettuce, Green Peppers, Banana Peppers, Onions, Tomatoes, Jalapenos, Cucumbers, Pickles, Guacamole, Mushrooms, Mayo, Mustard, Ketchup, Ranch, Thousand Islands, Vinaigrette, Steak, Ham, Salami, Roast Beef, Grilled Chicken, Bacon, American, Provolone, Cheddar, Swiss, Mac & Cheese, Fried Chicken, Cream Cheese, Chili, Queso, Fries, Mashed Potatoes, Deviled Eggs, Spicy Lettuce, Fried Pickles, Potato Chips, Mozzarella Sticks, Omelette, Peanut Butter, Jelly, Beef Jerky, Boneless Ribs, Crab Rangoon, Egg Rolls]
+
+Sandwich 2.) 
+	Size: MEDIUM
+	Bread: WHITE
+	Not Toasted
+	Toppings: [Mozzarella Sticks]
+	
+Your Order Total $94.00
+Thank you for shopping at Scooby's Snack Shack! Please come again soon!

@@ -1,0 +1,21 @@
+Order Receipt
+Date: 20231130-140339
+
+Your Order: 
+
+Chips 1.) 
+	Original Lays
+Chips 2.) 
+	Nacho Cheese Doritos
+Chips 3.) 
+	Cheddar Sun Chips
+Drink 1.) 
+	MEDIUM, Coca Cola, No Ice
+Sandwich 1.) 
+	Size: SMALL
+	Bread: WHITE
+	Not Toasted
+	No Toppings
+	
+Your Order Total $52.00
+Thank you for shopping at Scooby's Snack Shack! Please come again soon!

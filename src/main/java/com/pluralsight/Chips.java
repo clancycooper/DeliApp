@@ -18,7 +18,7 @@ public class Chips extends Item {
         int temp = 1;
         System.out.println("\nList of Chip Flavors: ");
         for (Chips flavors : chipFlavors) {
-            System.out.println(temp + ".) " + flavors.getChipType());
+            System.out.println(temp + ".) " + flavors.getChipType() + " ($1.50)");
             temp++;
         }
     }
