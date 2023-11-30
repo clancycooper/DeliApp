@@ -1,6 +1,5 @@
 package com.pluralsight;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -20,16 +19,15 @@ public class UserInterface {
         String selection = keyboard.nextLine();
 
         switch (selection) {
-            case "1":
-                orderScreen();
-                break;
-            case "2":
+            case "1" -> orderScreen();
+            case "2" -> {
                 System.out.println("\nHave a great day! Come back and see us!");
-                break;
-            default:
+                System.exit(0);
+            }
+            default -> {
                 System.out.println("\nZoinks! That's not a valid selection. Please select 1 or 2.");
                 homeScreen();
-                break;
+            }
         }
     }
 
@@ -39,26 +37,18 @@ public class UserInterface {
         String selection = keyboard.nextLine();
 
         switch (selection) {
-            case "1":
-                addSandwich();
-                break;
-            case "2":
-                addDrink();
-                break;
-            case "3":
-                addChips();
-                break;
-            case "4":
-                checkOut();
-                break;
-            case "0":
+            case "1" -> addSandwich();
+            case "2" -> addDrink();
+            case "3" -> addChips();
+            case "4" -> checkOut();
+            case "0" -> {
                 cart.clear();
                 homeScreen();
-                break;
-            default:
+            }
+            default -> {
                 System.out.println("\nZoinks! That's not a valid selection.");
                 orderScreen();
-                break;
+            }
         }
     }
 
@@ -69,50 +59,37 @@ public class UserInterface {
         String sizeChoice = keyboard.nextLine().trim();
         String size = "";
 
-            switch(sizeChoice){
-                case "1":
-                    //small
+        switch (sizeChoice) {
+            case "1" ->
+                //small
                     size = "SMALL";
-                    break;
-                case "2":
-                    //medium
+            case "2" ->
+                //medium
                     size = "MEDIUM";
-                    break;
-                case "3":
-                    //large
-                    size ="LARGE";
-                    break;
-                default:
-                    System.out.println("\nThat's not a valid size. Please try again.");
-                    addSandwich();
-                    break;
+            case "3" ->
+                //large
+                    size = "LARGE";
+            default -> {
+                System.out.println("\nThat's not a valid size. Please try again.");
+                addSandwich();
             }
+        }
 
         sandwich.setSandwichSize(size);
         System.out.println("\nWhat type of bread would you like? (1, 2, 3, 4, or 5)");
         System.out.print("\t[1] White\n\t[2] Wheat\n\t[3] Ciabatta\n\t[4] Italian Herb and Cheese\n\t[5] Pumpernickel \nUser Input: ");
         String breadChoice = keyboard.nextLine().trim(), bread = "";
 
-        switch(breadChoice){
-            case "1":
-                bread = "WHITE";
-                break;
-            case "2":
-                bread = "WHEAT";
-                break;
-            case "3":
-                bread = "CIABATTA";
-                break;
-            case "4":
-                bread = "ITALIAN HERB AND CHEESE";
-                break;
-            case "5":
-                bread = "PUMPERNICKEL";
-                break;
-            default:
+        switch (breadChoice) {
+            case "1" -> bread = "WHITE";
+            case "2" -> bread = "WHEAT";
+            case "3" -> bread = "CIABATTA";
+            case "4" -> bread = "ITALIAN HERB AND CHEESE";
+            case "5" -> bread = "PUMPERNICKEL";
+            default -> {
                 System.out.println("\nRuh Roh! That's not a valid option. Please try again!");
                 addSandwich();
-                break;
+            }
         }
 
         sandwich.setBreadType(bread);
@@ -121,16 +98,14 @@ public class UserInterface {
         String toastedChoice = keyboard.nextLine().trim();
         boolean isToasted = true;
 
-        switch(toastedChoice){
-            case "1":
-                break;
-            case "2":
-                isToasted = false;
-                break;
-            default:
+        switch (toastedChoice) {
+            case "1" -> {
+            }
+            case "2" -> isToasted = false;
+            default -> {
                 System.out.println("\nRuh Roh! That's not a valid option. Please try again. ");
                 addSandwich();
-                break;
+            }
         }
 
         sandwich.setToasted(isToasted);
@@ -138,17 +113,13 @@ public class UserInterface {
         System.out.print("\t[1] Toppings\n\t[2] No Toppings\nUser Input: ");
         String response = keyboard.nextLine().toUpperCase().trim();
 
-        switch(response){
-            case "1":
-                toppingsMenu(sandwich);
-                break;
-            case "2":
-                System.out.println("\nProceeding with No Toppings.");
-                break;
-            default:
+        switch (response) {
+            case "1" -> toppingsMenu(sandwich);
+            case "2" -> System.out.println("\nProceeding with No Toppings.");
+            default -> {
                 System.out.println("\nJinkies! That's not a valid option. Please try again.");
                 addSandwich();
-                break;
+            }
         }
         addToCart(sandwich);
         System.out.println("\nSandwich successfully added! Now returning to the Order Screen.");
@@ -160,111 +131,108 @@ public class UserInterface {
             System.out.println("\nWhich toppings would you like to view?");
             System.out.println("\t[1] Regular Toppings (Included)");
             switch (sandwich.getSandwichSize()) {
-                case "SMALL" :
-                    if(!sandwich.hasAnyMeat())
+                case "SMALL" -> {
+                    if (!sandwich.hasAnyMeat())
                         System.out.println("\t[2] Meat Toppings ($1.00)");
                     else
                         System.out.println("\t[2] Meat Toppings ($0.50)");
-                    if(!sandwich.hasAnyCheese())
+                    if (!sandwich.hasAnyCheese())
                         System.out.println("\t[3] Cheese Toppings ($0.75)");
                     else
                         System.out.println("\t[3] Cheese Toppings ($0.30)");
-                    if(!sandwich.hasAnyMunchy())
+                    if (!sandwich.hasAnyMunchy())
                         System.out.println("\t[4] Munchy Toppings ($1.25)");
                     else
                         System.out.println("\t[4] Munchy Toppings ($0.60)");
-                    break;
-
-                case "MEDIUM" :
-                    if(!sandwich.hasAnyMeat())
+                }
+                case "MEDIUM" -> {
+                    if (!sandwich.hasAnyMeat())
                         System.out.println("\t[2] Meat Toppings ($2.00)");
                     else
                         System.out.println("\t[2] Meat Toppings ($1.00)");
-                    if(!sandwich.hasAnyCheese())
+                    if (!sandwich.hasAnyCheese())
                         System.out.println("\t[3] Cheese Toppings ($1.50)");
                     else
                         System.out.println("\t[3] Cheese Toppings ($0.60)");
-                    if(!sandwich.hasAnyMunchy())
+                    if (!sandwich.hasAnyMunchy())
                         System.out.println("\t[4] Munchy Toppings ($2.50)");
                     else
                         System.out.println("\t[4] Munchy Toppings ($1.20)");
-                    break;
-
-                case "LARGE" :
-                    if(!sandwich.hasAnyMeat())
+                }
+                case "LARGE" -> {
+                    if (!sandwich.hasAnyMeat())
                         System.out.println("\t[2] Meat Toppings ($3.00)");
                     else
                         System.out.println("\t[2] Meat Toppings ($1.50)");
-                    if(!sandwich.hasAnyCheese())
+                    if (!sandwich.hasAnyCheese())
                         System.out.println("\t[3] Cheese Toppings ($2.25)");
                     else
                         System.out.println("\t[3] Cheese Toppings ($0.90)");
-                    if(!sandwich.hasAnyMunchy())
+                    if (!sandwich.hasAnyMunchy())
                         System.out.println("\t[4] Munchy Toppings ($3.75)");
                     else
                         System.out.println("\t[4] Munchy Toppings ($1.80)");
-                    break;
+                }
             }
             System.out.print("User Input: ");
             String choice = keyboard.nextLine().toUpperCase().trim();
             //Topping menu
-            switch(choice){
-                case "1":
+            switch (choice) {
+                case "1" -> {
                     toStringRegularToppings();
                     System.out.print("\nPlease enter the # of your topping choice: ");
                     int regToppingChoice = keyboard.nextInt();
-                    sandwich.sandwichToppings.add(regularToppings.get(regToppingChoice-1));
+                    sandwich.sandwichToppings.add(regularToppings.get(regToppingChoice - 1));
                     keyboard.nextLine();
                     anotherTopping(sandwich);
-                    break;
-                case "2":
+                }
+                case "2" -> {
                     toStringMeatToppings();
                     System.out.print("\nPlease enter the # of your topping choice: ");
                     int meatToppingChoice = keyboard.nextInt();
-                    for(Toppings toppings: sandwich.sandwichToppings){
-                        if(toppings.isMeat){
-                            premiumMeatToppings.get(meatToppingChoice-1).setExtraMeat(true);
+                    for (Toppings toppings : sandwich.sandwichToppings) {
+                        if (toppings.isMeat) {
+                            premiumMeatToppings.get(meatToppingChoice - 1).setExtraMeat(true);
                             break;
                         }
                     }
-                    sandwich.sandwichToppings.add((premiumMeatToppings.get(meatToppingChoice-1)));
+                    sandwich.sandwichToppings.add((premiumMeatToppings.get(meatToppingChoice - 1)));
                     keyboard.nextLine();
                     anotherTopping(sandwich);
-                    break;
-                case "3":
+                }
+                case "3" -> {
                     toStringCheeseToppings();
                     System.out.print("\nPlease enter the # of your topping choice: ");
                     int cheeseToppingChoice = keyboard.nextInt();
-                    for(Toppings toppings: sandwich.sandwichToppings){
-                        if(toppings.isCheese){
-                            premiumCheeseToppings.get(cheeseToppingChoice-1).setExtraCheese(true);
+                    for (Toppings toppings : sandwich.sandwichToppings) {
+                        if (toppings.isCheese) {
+                            premiumCheeseToppings.get(cheeseToppingChoice - 1).setExtraCheese(true);
                             break;
                         }
                     }
-                    sandwich.sandwichToppings.add((premiumCheeseToppings.get(cheeseToppingChoice-1)));
+                    sandwich.sandwichToppings.add((premiumCheeseToppings.get(cheeseToppingChoice - 1)));
                     keyboard.nextLine();
                     anotherTopping(sandwich);
-                    break;
-                case "4":
+                }
+                case "4" -> {
                     toStringMunchyToppings();
                     System.out.print("\nPlease enter the # of your topping choice: ");
                     int munToppingChoice = keyboard.nextInt();
-                    for(Toppings toppings: sandwich.sandwichToppings){
-                        if(toppings.isMunchy){
-                            munchyToppings.get(munToppingChoice-1).setExtraMunchy(true);
+                    for (Toppings toppings : sandwich.sandwichToppings) {
+                        if (toppings.isMunchy) {
+                            munchyToppings.get(munToppingChoice - 1).setExtraMunchy(true);
                             break;
                         }
                     }
-                    sandwich.sandwichToppings.add((munchyToppings.get(munToppingChoice-1)));
+                    sandwich.sandwichToppings.add((munchyToppings.get(munToppingChoice - 1)));
                     keyboard.nextLine();
                     anotherTopping(sandwich);
-                    break;
-                case"5":
-                    System.out.println("\nExiting Toppings Selection.");
-                    break;
-                default:
+                }
+                case "5" -> System.out.println("\nExiting Toppings Selection.");
+                default -> {
                     System.out.println("\nRuh-Roh! That's not a valid option. Please try again.");
                     toppingsMenu(sandwich);
+                }
             }
         }
         catch(Exception inputError){
@@ -279,14 +247,13 @@ public class UserInterface {
         System.out.print("\t[1] Yes\n\t[2] No\nUser Input: ");
         String response = keyboard.nextLine();
         switch (response) {
-            case "1":
-                toppingsMenu(sandwich);
-                break;
-            case "2":
-                break;
-            default:
+            case "1" -> toppingsMenu(sandwich);
+            case "2" -> {
+            }
+            default -> {
                 System.out.println("\nZoinks! That's not a valid option. Please try again.");
                 anotherTopping(sandwich);
+            }
         }
     }
 
@@ -316,15 +283,14 @@ public class UserInterface {
             System.out.print("\n\t[1] Yes\n\t[2] No\nUser Input: ");
             String iceChoice = keyboard.nextLine().trim();
             boolean hasIce = true;
-            switch(iceChoice){
-                case"1":
-                    break;
-                case "2":
-                    hasIce = false;
-                    break;
-                default:
+            switch (iceChoice) {
+                case "1" -> {
+                }
+                case "2" -> hasIce = false;
+                default -> {
                     System.out.println("\nRuh-Roh! That's not a valid option. Please try again.");
                     addDrink();
+                }
             }
             Drink newDrink = new Drink(size, flavourChoice, hasIce);
             addToCart(newDrink);

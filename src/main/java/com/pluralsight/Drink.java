@@ -34,14 +34,18 @@ public class Drink extends Item {
     @Override
     public double getPrice() {
         switch (drinkSize) {
-            case "SMALL":
+            case "SMALL" -> {
                 return 2.00;
-            case "MEDIUM":
+            }
+            case "MEDIUM" -> {
                 return 2.50;
-            case "LARGE":
+            }
+            case "LARGE" -> {
                 return 3.00;
-            default:
+            }
+            default -> {
                 return 0.0; //default for if user chooses no drink option
+            }
         }
     }
 

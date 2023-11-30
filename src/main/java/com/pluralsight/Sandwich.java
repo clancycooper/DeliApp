@@ -30,14 +30,6 @@ public class Sandwich extends Item {
         return sandwichSize;
     }
 
-    public ArrayList<Toppings> getSandwichToppings() {
-        return sandwichToppings;
-    }
-
-    public void setSandwichToppings(ArrayList<Toppings> sandwichToppings) {
-        this.sandwichToppings = sandwichToppings;
-    }
-
     public void setToasted(boolean toasted) {
         this.toasted = toasted;
     }
@@ -156,24 +148,23 @@ public class Sandwich extends Item {
             if (sandwichToppings.isEmpty()) {
                 return "Size: " + sandwichSize + "\n\t" +
                         "Bread: " + breadType + "\n\t" +
-                        "Toasted" +
+                        "Toasted\n\t" +
                         "No Toppings" + "\n\t";
             } else {
                 return "Size: " + sandwichSize + "\n\t" +
                         "Bread: " + breadType + "\n\t" +
-                        "Toasted" +
-                        "Toppings: " + sandwichToppings + "\n\t";
+                        "Toasted\n\t" + "Toppings: " + sandwichToppings + "\n";
             }
         } else {
             if (sandwichToppings.isEmpty()) {
                 return "Size: " + sandwichSize + "\n\t" +
                         "Bread: " + breadType + "\n\t" +
-                        "Not Toasted" +
+                        "Not Toasted\n\t" +
                         "No Toppings" + "\n\t";
             } else {
                 return "Size: " + sandwichSize + "\n\t" +
                         "Bread: " + breadType + "\n\t" +
-                        "Not Toasted" +
+                        "Not Toasted\n\t" +
                         "Toppings: " + sandwichToppings + "\n\t";
             }
 
