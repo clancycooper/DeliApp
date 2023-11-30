@@ -5,7 +5,7 @@ import java.io.FileReader;
 
 import static com.pluralsight.Chips.chipFlavors;
 import static com.pluralsight.Drink.drinkFlavors;
-import static com.pluralsight.Toppings.*;
+import static com.pluralsight.Menu.*;
 import static com.pluralsight.UserInterface.homeScreen;
 
 public class MenuReader {

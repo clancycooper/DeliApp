@@ -9,6 +9,7 @@ import static com.pluralsight.Sandwich.*;
 import static com.pluralsight.Toppings.*;
 import static com.pluralsight.Drink.*;
 import static com.pluralsight.Chips.*;
+import static com.pluralsight.Menu.*;
 
 public class UserInterface {
     public static Scanner keyboard = new Scanner(System.in);
@@ -62,7 +63,6 @@ public class UserInterface {
     }
 
     public static void addSandwich(){
-        ArrayList<Toppings> toppings = new ArrayList<>();
         Sandwich sandwich = new Sandwich();
         System.out.println("\nWhat size sandwich would you like? (1, 2, or 3)");
         System.out.print("\t[1] Small/4 Inch - ($5.50)\n\t[2] Medium/8 Inch - ($7.00)\n\t[3] Large/12 Inch - ($8.50)\nUser Input: ");
@@ -88,6 +88,7 @@ public class UserInterface {
                     break;
             }
 
+        sandwich.setSandwichSize(size);
         System.out.println("\nWhat type of bread would you like? (1, 2, 3, 4, or 5)");
         System.out.print("\t[1] White\n\t[2] Wheat\n\t[3] Ciabatta\n\t[4] Italian Herb and Cheese\n\t[5] Pumpernickel \nUser Input: ");
         String breadChoice = keyboard.nextLine().trim(), bread = "";
@@ -114,6 +115,7 @@ public class UserInterface {
                 break;
         }
 
+        sandwich.setBreadType(bread);
         System.out.println("\nWould you like your sandwich toasted? (1 or 2)");
         System.out.print("\t[1] Toasted\n\t[2] Not Toasted\nUser Input: ");
         String toastedChoice = keyboard.nextLine().trim();
@@ -131,14 +133,14 @@ public class UserInterface {
                 break;
         }
 
-        //Prompt user for toppings to use
+        sandwich.setToasted(isToasted);
         System.out.println("\nWould you like Toppings? (1 or 2)");
         System.out.print("\t[1] Toppings\n\t[2] No Toppings\nUser Input: ");
         String response = keyboard.nextLine().toUpperCase().trim();
 
         switch(response){
             case "1":
-                toppingsMenu(toppings, size);
+                toppingsMenu(sandwich);
                 break;
             case "2":
                 System.out.println("\nProceeding with No Toppings.");
@@ -148,61 +150,56 @@ public class UserInterface {
                 addSandwich();
                 break;
         }
-        sandwich.setBreadType(bread);
-        sandwich.setSandwichSize(size);
-        sandwich.setToasted(isToasted);
-        sandwich.setSandwichToppings(toppings);
         addToCart(sandwich);
-        sandwichToppings.clear();
         System.out.println("\nSandwich successfully added! Now returning to the Order Screen.");
         orderScreen();
     }
 
-     public static void toppingsMenu(ArrayList<Toppings> newToppings, String size){
+     public static void toppingsMenu(Sandwich sandwich){
         try{
             System.out.println("\nWhich toppings would you like to view?");
             System.out.println("\t[1] Regular Toppings (Included)");
-            switch (size) {
+            switch (sandwich.getSandwichSize()) {
                 case "SMALL" :
-                    if(!hasAnyMeat(newToppings))
+                    if(!sandwich.hasAnyMeat())
                         System.out.println("\t[2] Meat Toppings ($1.00)");
                     else
                         System.out.println("\t[2] Meat Toppings ($0.50)");
-                    if(!hasAnyCheese(newToppings))
+                    if(!sandwich.hasAnyCheese())
                         System.out.println("\t[3] Cheese Toppings ($0.75)");
                     else
                         System.out.println("\t[3] Cheese Toppings ($0.30)");
-                    if(!hasAnyMunchy(newToppings))
+                    if(!sandwich.hasAnyMunchy())
                         System.out.println("\t[4] Munchy Toppings ($1.25)");
                     else
                         System.out.println("\t[4] Munchy Toppings ($0.60)");
                     break;
 
                 case "MEDIUM" :
-                    if(!hasAnyMeat(newToppings))
+                    if(!sandwich.hasAnyMeat())
                         System.out.println("\t[2] Meat Toppings ($2.00)");
                     else
                         System.out.println("\t[2] Meat Toppings ($1.00)");
-                    if(!hasAnyCheese(newToppings))
+                    if(!sandwich.hasAnyCheese())
                         System.out.println("\t[3] Cheese Toppings ($1.50)");
                     else
                         System.out.println("\t[3] Cheese Toppings ($0.60)");
-                    if(!hasAnyMunchy(newToppings))
+                    if(!sandwich.hasAnyMunchy())
                         System.out.println("\t[4] Munchy Toppings ($2.50)");
                     else
                         System.out.println("\t[4] Munchy Toppings ($1.20)");
                     break;
 
                 case "LARGE" :
-                    if(!hasAnyMeat(newToppings))
+                    if(!sandwich.hasAnyMeat())
                         System.out.println("\t[2] Meat Toppings ($3.00)");
                     else
                         System.out.println("\t[2] Meat Toppings ($1.50)");
-                    if(!hasAnyCheese(newToppings))
+                    if(!sandwich.hasAnyCheese())
                         System.out.println("\t[3] Cheese Toppings ($2.25)");
                     else
                         System.out.println("\t[3] Cheese Toppings ($0.90)");
-                    if(!hasAnyMunchy(newToppings))
+                    if(!sandwich.hasAnyMunchy())
                         System.out.println("\t[4] Munchy Toppings ($3.75)");
                     else
                         System.out.println("\t[4] Munchy Toppings ($1.80)");
@@ -216,81 +213,80 @@ public class UserInterface {
                     toStringRegularToppings();
                     System.out.print("\nPlease enter the # of your topping choice: ");
                     int regToppingChoice = keyboard.nextInt();
-                    regularToppings.get(regToppingChoice-1).setSize(size);
-                    newToppings.add(regularToppings.get(regToppingChoice-1));
+                    sandwich.sandwichToppings.add(regularToppings.get(regToppingChoice-1));
                     keyboard.nextLine();
-                    anotherTopping(newToppings, size);
+                    anotherTopping(sandwich);
                     break;
                 case "2":
                     toStringMeatToppings();
                     System.out.print("\nPlease enter the # of your topping choice: ");
                     int meatToppingChoice = keyboard.nextInt();
-                    for(Toppings toppings: newToppings){
+                    for(Toppings toppings: sandwich.sandwichToppings){
                         if(toppings.isMeat){
                             premiumMeatToppings.get(meatToppingChoice-1).setExtraMeat(true);
                             break;
                         }
                     }
-                    newToppings.add((premiumMeatToppings.get(meatToppingChoice-1)));
+                    sandwich.sandwichToppings.add((premiumMeatToppings.get(meatToppingChoice-1)));
                     keyboard.nextLine();
-                    anotherTopping(newToppings, size);
+                    anotherTopping(sandwich);
                     break;
                 case "3":
                     toStringCheeseToppings();
                     System.out.print("\nPlease enter the # of your topping choice: ");
                     int cheeseToppingChoice = keyboard.nextInt();
-                    for(Toppings toppings: newToppings){
+                    for(Toppings toppings: sandwich.sandwichToppings){
                         if(toppings.isCheese){
                             premiumCheeseToppings.get(cheeseToppingChoice-1).setExtraCheese(true);
                             break;
                         }
                     }
-                    newToppings.add((premiumCheeseToppings.get(cheeseToppingChoice-1)));
+                    sandwich.sandwichToppings.add((premiumCheeseToppings.get(cheeseToppingChoice-1)));
                     keyboard.nextLine();
-                    anotherTopping(newToppings, size);
+                    anotherTopping(sandwich);
                     break;
                 case "4":
                     toStringMunchyToppings();
                     System.out.print("\nPlease enter the # of your topping choice: ");
                     int munToppingChoice = keyboard.nextInt();
-                    for(Toppings toppings: newToppings){
+                    for(Toppings toppings: sandwich.sandwichToppings){
                         if(toppings.isMunchy){
                             munchyToppings.get(munToppingChoice-1).setExtraMunchy(true);
                             break;
                         }
                     }
-                    newToppings.add((munchyToppings.get(munToppingChoice-1)));
+                    sandwich.sandwichToppings.add((munchyToppings.get(munToppingChoice-1)));
                     keyboard.nextLine();
-                    anotherTopping(newToppings, size);
+                    anotherTopping(sandwich);
                     break;
                 case"5":
                     System.out.println("\nExiting Toppings Selection.");
                     break;
                 default:
                     System.out.println("\nRuh-Roh! That's not a valid option. Please try again.");
-                    toppingsMenu(newToppings, size);
+                    toppingsMenu(sandwich);
             }
         }
         catch(Exception inputError){
             System.out.println("\nThere seems to have been an issue with your input, please try again!");
             inputError.printStackTrace();
-            toppingsMenu(newToppings, size);
+            toppingsMenu(sandwich);
         }
      }
 
-    public static void anotherTopping(ArrayList<Toppings> anotherTopping, String size) {
+    public static void anotherTopping(Sandwich sandwich) {
         System.out.println("\nWould you like to add another topping? (1 or 2)");
         System.out.print("\t[1] Yes\n\t[2] No\nUser Input: ");
         String response = keyboard.nextLine();
         switch (response) {
             case "1":
-                toppingsMenu(anotherTopping, size);
+                toppingsMenu(sandwich);
                 break;
             case "2":
                 break;
             default:
                 System.out.println("\nZoinks! That's not a valid option. Please try again.");
-                anotherTopping(anotherTopping, size);
+                anotherTopping(sandwich);
         }
     }
 

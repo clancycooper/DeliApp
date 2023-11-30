@@ -1,19 +1,14 @@
 package com.pluralsight;
 
 import java.util.ArrayList;
+import static com.pluralsight.Menu.*;
 
 public class Toppings extends Item {
-    protected String toppingName, size;
+    protected String toppingName;
     protected boolean isMeat, isExtraMeat, isCheese, isExtraCheese, isMunchy, isExtraMunchy;
-
-    static ArrayList<Toppings> regularToppings = new ArrayList<>();
-    static ArrayList<Toppings> premiumMeatToppings = new ArrayList<>();
-    static ArrayList<Toppings> premiumCheeseToppings = new ArrayList<>();
-    static ArrayList<Toppings> munchyToppings = new ArrayList<>();
 
     public Toppings(String toppingName, String size, boolean isMeat, boolean isExtraMeat, boolean isCheese, boolean isExtraCheese, boolean isMunchy, boolean isExtraMunchy) {
         this.toppingName = toppingName;
-        this.size = size;
         this.isMeat = isMeat;
         this.isExtraMeat = isExtraMeat;
         this.isCheese = isCheese;
@@ -36,10 +31,6 @@ public class Toppings extends Item {
 
     public void setExtraMunchy(boolean extraMunchy) {
         isExtraMunchy = extraMunchy;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
     }
 
     public static void toStringRegularToppings() {
@@ -83,6 +74,11 @@ public class Toppings extends Item {
 
     @Override
     public double getPrice() {
+        return 0;
+    }
+
+    @Override
+    public double getPrice(String size) {
         switch (size) {
             case "small":
                 if (isMeat && !isExtraMeat)
