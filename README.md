@@ -50,3 +50,8 @@ This project was only made possible by the combined efforts of each of our contr
   In addition to the above classes, Clancy also developed the README, hosted the repository, and created the project board for an efficient team based workflow. With a knack for project management and design, he aided his colleagues in keeping to the project timeline, delivering a user friendly design, and bringing the project's theme to life.
 
 ### A massive round of applause to our dedicated team, whose collaboration, creativity, and hard work made this incredible project a reality.
+
+![mm_ani](https://github.com/clancycooper/DeliApp/assets/141694194/453e5c6f-c851-4a28-8994-6246601c4cc1)
+
+
+
