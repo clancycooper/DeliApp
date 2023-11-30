@@ -1,0 +1,13 @@
+Order Receipt
+Date: 20231130-085553
+
+Your Order: 
+
+Drink 1.) 
+	LARGE, Lemonade, On the rocks(Ice)
+Sandwich 1.) 
+	Size: MEDIUM
+	Bread: CIABATTA
+	ToastedToppings: [Steak, Cheddar, Crab Rangoon, Deviled Eggs]
+	
+Your Order Total $22.30

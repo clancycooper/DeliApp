@@ -1,0 +1,26 @@
+Order Receipt
+Date: 20231130-110700
+
+Your Order: 
+
+Chips 1.) 
+	Nacho Cheese Doritos
+Chips 2.) 
+	Garden Salsa Sun Chips
+Drink 1.) 
+	LARGE, Sweet Tea, On the rocks(Ice)
+Drink 2.) 
+	LARGE, Fruit Punch, No Ice
+Sandwich 1.) 
+	Size: EXTRA LARGE
+	Bread: ALL BREAD
+	Not Toasted
+	Toppings: [Lettuce, Green Peppers, Banana Peppers, Onions, Tomatoes, Jalapenos, Cucumbers, Pickles, Guacamole, Mushrooms, Mayo, Mustard, Ketchup, Ranch, Thousand Islands, Vinaigrette, Steak, Ham, Salami, Roast Beef, Grilled Chicken, Bacon, American, Provolone, Cheddar, Swiss, Mac & Cheese, Fried Chicken, Cream Cheese, Chili, Queso, Fries, Mashed Potatoes, Deviled Eggs, Spicy Lettuce, Fried Pickles, Potato Chips, Mozzarella Sticks, Omelette, Peanut Butter, Jelly, Beef Jerky, Boneless Ribs, Crab Rangoon, Egg Rolls]
+	
+Sandwich 2.) 
+	Size: EXTRA LARGE
+	Bread: 
+	Toasted
+	Toppings: ?
+	
+Your Order Total $99.00
