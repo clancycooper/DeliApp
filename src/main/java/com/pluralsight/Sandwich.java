@@ -148,11 +148,20 @@ public class Sandwich extends Item {
     public String toString() {
         if (isToasted()) {
             if (sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")){
-                return "Size: " + sandwichSize + "\n\t" +
+                return "Signature: Mystery Sub" + "\n\t" +
+                        "Size: " + sandwichSize + "\n\t" +
                         "Bread: " + breadType + "\n\t" +
                         "Toasted\n\t" +
                         "Toppings: ?" + "\n\t";
-            } else {
+            }
+            else if (!sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")) {
+                return "Signature: Scooby Stack" + "\n\t" +
+                        "Size: " + sandwichSize + "\n\t" +
+                        "Bread: " + breadType + "\n\t" +
+                        "Toasted\n\t" +
+                        "Toppings: " + sandwichToppings + "\n";
+            }
+            else {
                 if (sandwichToppings.isEmpty()) {
                     return "Size: " + sandwichSize + "\n\t" +
                             "Bread: " + breadType + "\n\t" +
@@ -164,12 +173,20 @@ public class Sandwich extends Item {
                             "Toasted\n\t" + "Toppings: " + sandwichToppings + "\n";
                 }
             }
-        } else {
+        }
+        else {
             if (sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")){
-                return "Size: " + sandwichSize + "\n\t" +
+                return "Signature: Mystery Sub" + "\n\t" +
+                        "Size: " + sandwichSize + "\n\t" +
                         "Bread: " + breadType + "\n\t" +
                         "Not Toasted\n\t" +
                         "Toppings: ?" + "\n\t";
+            } else if (!sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")) {
+                return "Signature: Scooby Stack" + "\n\t" +
+                        "Size: " + sandwichSize + "\n\t" +
+                        "Bread: " + breadType + "\n\t" +
+                        "Not Toasted\n\t" +
+                        "Toppings: " + sandwichToppings + "\n";
             }
             else {
                 if (sandwichToppings.isEmpty()) {
