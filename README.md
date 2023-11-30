@@ -18,6 +18,17 @@ Welcome to Scooby’s Snack Shack, a delightful sandwich ordering platform desig
   
 - Usage: Scooby's Snack Shack is ready to run, simply launch the app and enter your sandwich order by following the menu prompts in the command line. You'll be guided through the process, allowed to add as many or as few topping as you're hungry for, and given a second chance to make changes to your order before the kitchen gets to work. Following your written confirmation, our database will be automatically updated with a file of your customized order and total charges. Your receipt will include the date and time of your purchase!
 
+## Highlights  
+We decided to highlight our Signature Sandwiches code. This snippet was chosen for it's creativity and re-incorporation of all exisiting classes and methods. If you're up for an adventure, try our Mystery Sub, crafted by a member of Staff with Mystery ingredients. Not feeling up to the task of solving your lunch? Feeling EXTRA hungry? Get our signature Scooby Stack! Topped high with every single topping we offer, this creation is sure to fill you up after a long day of meddling!
+
+![image](https://github.com/clancycooper/DeliApp/assets/141694194/83d87245-4e76-4320-b59b-2566c1141a88)
+
+![image](https://github.com/clancycooper/DeliApp/assets/141694194/1e7bd1a0-c070-4eed-b509-d495b1dfe5d2)
+
+![image](https://github.com/clancycooper/DeliApp/assets/141694194/e5c21afe-11ac-4691-9403-cbde22b39226)
+
+![image](https://github.com/clancycooper/DeliApp/assets/141694194/dffae6ae-b671-4bbb-b9d7-9f652b083a4e)
+
 ## Acknowledgments
 This project was only made possible by the combined efforts of each of our contributors. We would like to dedicate this section to the heart and backbone of Scooby's Snack Shack, The Gang.
 
