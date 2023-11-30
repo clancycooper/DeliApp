@@ -7,5 +7,7 @@ ___
 ___
 
 ## Scooby's Snack Shack: Demo
-![image](https://github.com/clancycooper/DeliApp/assets/141694194/5b8b8b3e-fe1a-45a8-b8bb-3bf1e7621e79)
+
+![image](https://github.com/clancycooper/DeliApp/assets/141694194/caa8642f-46f4-48a3-8dfb-cc32dcfdce2b)
+
 
