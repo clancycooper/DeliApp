@@ -42,16 +42,16 @@ public class ReceiptManager {
             }
 
         }
-        System.out.println("Your Order Total $" + df.format(getTotal()));
+        System.out.print("Your Order Total $" + df.format(getTotal()) + "\nUser Input:");
         Scanner scanner = new Scanner(System.in);
         String checkoutChoice = scanner.nextLine().toUpperCase().trim();
         if (checkoutChoice.equals("CONFIRM")) {
             saveReceipt(cart);
         } else if (checkoutChoice.equals("CANCEL")) {
-            System.out.println("Thank you for visiting Scooby's Snack Shack! Like come back again real soon! Scooby Dooby Doo!~ ");
+            System.out.println("\nThank you for visiting Scooby's Snack Shack! Like come back again real soon! Scooby Dooby Doo!~ ");
             homeScreen();
         } else {
-            System.out.println("Zoinks! Could not process entry, please try again.");
+            System.out.println("\nZoinks! Could not process entry, please try again.");
             displayOrderDetails(cart);
         }
     }
@@ -89,11 +89,10 @@ public class ReceiptManager {
 
             }
             writer.newLine();
-            writer.newLine();
             writer.write("Your Order Total $" + df.format(getTotal()));
-            System.out.println("Receipt generated successfully: " + fileName);
+            System.out.println("\nLike thank you for your purchase!!\n\nReceipt generated successfully: " + fileName);
         } catch (IOException e) {
-            System.err.println("Error generating receipt: " + e.getMessage());
+            System.err.println("\nError generating receipt: " + e.getMessage());
         }
         homeScreen();
     }

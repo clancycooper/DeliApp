@@ -31,11 +31,6 @@ public class Chips extends Item {
     }
 
     @Override
-    public double getPrice(String size) {
-        return 0;
-    }
-
-    @Override
     public String toString() {
         return chipType;
     }

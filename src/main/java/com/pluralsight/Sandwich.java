@@ -101,52 +101,80 @@ public class Sandwich extends Item {
             case "SMALL":
                 sandwichPrice = 5.50;
                 for (Toppings topping : sandwichToppings) {
-                    sandwichPrice += topping.getPrice(sandwichSize);
+                    if (topping.isMeat && !topping.isExtraMeat)
+                        sandwichPrice += 1.00;
+                    else if (topping.isExtraMeat)
+                        sandwichPrice += 0.50;
+                    else if (topping.isCheese && !topping.isExtraCheese)
+                        sandwichPrice += 0.75;
+                    else if (topping.isExtraCheese)
+                        sandwichPrice += 0.30;
+                    else if (topping.isMunchy && !topping.isExtraMunchy)
+                        sandwichPrice += 1.25;
+                    else if (topping.isExtraMunchy)
+                        sandwichPrice += 0.60;
                 }
             case "MEDIUM":
                 sandwichPrice = 7.00;
                 for (Toppings topping : sandwichToppings) {
-                    sandwichPrice += topping.getPrice(sandwichSize);
+                    if (topping.isMeat && !topping.isExtraMeat)
+                        sandwichPrice += 2.00;
+                    else if (topping.isExtraMeat)
+                        sandwichPrice += 1.00;
+                    else if (topping.isCheese && !topping.isExtraCheese)
+                        sandwichPrice += 1.50;
+                    else if (topping.isExtraCheese)
+                        sandwichPrice += 0.60;
+                    else if (topping.isMunchy && !topping.isExtraMunchy)
+                        sandwichPrice += 2.50;
+                    else if (topping.isExtraMunchy)
+                        sandwichPrice += 1.20;
                 }
             case "LARGE":
                 sandwichPrice = 8.50;
                 for (Toppings topping : sandwichToppings) {
-                    sandwichPrice += topping.getPrice(sandwichSize);
+                    if (topping.isMeat && !topping.isExtraMeat)
+                        sandwichPrice += 3.00;
+                    else if (topping.isExtraMeat)
+                        sandwichPrice += 1.50;
+                    else if (topping.isCheese && !topping.isExtraCheese)
+                        sandwichPrice += 2.25;
+                    else if (topping.isExtraCheese)
+                        sandwichPrice += 0.90;
+                    else if (topping.isMunchy && !topping.isExtraMunchy)
+                        sandwichPrice += 3.75;
+                    else if (topping.isExtraMunchy)
+                        sandwichPrice += 1.80;
                 }
         }
         return sandwichPrice;
     }
 
     @Override
-    public double getPrice(String size) {
-        return 0;
-    }
-
-    @Override
     public String toString() {
         if (isToasted()) {
             if (sandwichToppings.isEmpty()) {
-                return "Bread: " + breadType + "\n\t" +
-                        "Size: " + sandwichSize + "\n\t" +
-                        "No Toppings" + "\n\t" +
-                        "Toasted";
+                return "Size: " + sandwichSize + "\n\t" +
+                        "Bread: " + breadType + "\n\t" +
+                        "Toasted" +
+                        "No Toppings" + "\n\t";
             } else {
-                return "Bread: " + breadType + "\n\t" +
-                        "Size: " + sandwichSize + "\n\t" +
-                        "Toppings: " + sandwichToppings + "\n\t" +
-                        "Toasted";
+                return "Size: " + sandwichSize + "\n\t" +
+                        "Bread: " + breadType + "\n\t" +
+                        "Toasted" +
+                        "Toppings: " + sandwichToppings + "\n\t";
             }
         } else {
             if (sandwichToppings.isEmpty()) {
-                return "Bread: " + breadType + "\n\t" +
-                        "Size: " + sandwichSize + "\n\t" +
-                        "No Toppings" + "\n\t" +
-                        "Not Toasted";
+                return "Size: " + sandwichSize + "\n\t" +
+                        "Bread: " + breadType + "\n\t" +
+                        "Not Toasted" +
+                        "No Toppings" + "\n\t";
             } else {
-                return "Bread: " + breadType + "\n\t" +
-                        "Size: " + sandwichSize + "\n\t" +
-                        "Toppings: " + sandwichToppings + "\n\t" +
-                        "Not Toasted";
+                return "Size: " + sandwichSize + "\n\t" +
+                        "Bread: " + breadType + "\n\t" +
+                        "Not Toasted" +
+                        "Toppings: " + sandwichToppings + "\n\t";
             }
 
         }
