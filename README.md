@@ -20,21 +20,30 @@ Welcome to Scooby’s Snack Shack, a delightful sandwich ordering platform desig
 
 ## Acknowledgments
 This project was only made possible by the combined efforts of each of our contributors. We would like to dedicate this section to the heart and backbone of Scooby's Snack Shack, The Gang.
+
 ### Erik Holden
+![image](https://github.com/clancycooper/DeliApp/assets/141694194/bb51908a-bcc9-46f1-b046-16138e2cc48d)
+
 - Sandwich Class: The foundation of our sandwiches
 - Item Class: Parent to each item on our menu
 - Item Interface: The interface which implemented the getPrice() method
 
   In addition to these crucial responsibilites, Erik was a work horse for this project. He was constantly testing our application, pushing fixes, and assisting his colleagues. His technical skills are boundless, his love for programming shines in his work, and he is a deeply valued member of our team for his communication, cooperation and attention to detail.
 ### Andi Burke
+![image](https://github.com/clancycooper/DeliApp/assets/141694194/319963a8-29c2-45c4-8c9b-e5a8d4959440)
+
 - Toppings Class: Premium, Regular and Munchy toppings, plus sauces, meats, and cheeses
 
   Creator of the Munchy Toppings! Andi was tasked with the toppings class, which required a substantial amount of work. They easily shouldered this responsibility with a smile on their face! They brought a creative energy to the project that contributed heavily to our final menu. Andi's suggestions led to constant improvements in our app, they brought an infectious energy that kept our team motivated to push through challenges and create the best version of Scooby's Snack Shack.
 ### Steven Crutchfield
+![image](https://github.com/clancycooper/DeliApp/assets/141694194/9871dbfc-aea5-46be-b365-69f43aa05bd1)
+
 - User Interface: The connection between our logic and the users' experience
 
   Steven's assignment was one that was ever shifting as new features were added. His role demanded constant communication with his team in order to correctly implement each class into the users' experience. This role could've easily overwhelmed any developer, but Steven was headstrong in his work. He was a fast and responsive communicator, dedicated any of his spare time to studying the code in other classes for better implementation, and worked tirelessly to make improvements as the project progressed. Without Steven, our app would be a blank command line instead of the interactive app you see today.
 ### Clancy Long
+![image](https://github.com/clancycooper/DeliApp/assets/141694194/2e7a10fe-7a0b-4871-89e2-989c8b8ec003)
+
 - Chip and Drink Classes: Additions to a customer's sandwich order
 - Receipt Manager: The class that houses our displayOrder() and saveReceipts() methods
 
