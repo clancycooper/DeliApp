@@ -1,5 +1,6 @@
 package com.pluralsight;
 
 public interface ItemFunctions {
-    public double getPrice();
-}
+    double getPrice();
+    double getPrice(String size);
+};
