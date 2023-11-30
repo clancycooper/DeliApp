@@ -141,13 +141,13 @@ public class Sandwich extends Item {
         if (isToasted()) {
             if (sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")) {
                 return "Signature: Mystery Sub" + "\n\t" +
-                        "Size: " + sandwichSize + "\n\t" +
+                        "Size: DOUBLE STACK\n\t" +
                         "Bread: " + breadType + "\n\t" +
                         "Toasted\n\t" +
                         "Toppings: ?" + "\n\t";
             } else if (!sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")) {
                 return "Signature: Scooby Stack" + "\n\t" +
-                        "Size: " + sandwichSize + "\n\t" +
+                        "Size: DOUBLE STACK\n\t" +
                         "Bread: " + breadType + "\n\t" +
                         "Toasted\n\t" +
                         "Toppings: " + sandwichToppings + "\n";
@@ -166,13 +166,13 @@ public class Sandwich extends Item {
         } else {
             if (sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")) {
                 return "Signature: Mystery Sub" + "\n\t" +
-                        "Size: " + sandwichSize + "\n\t" +
+                        "Size: DOUBLE STACK\n\t" +
                         "Bread: " + breadType + "\n\t" +
                         "Not Toasted\n\t" +
                         "Toppings: ?" + "\n\t";
             } else if (!sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")) {
                 return "Signature: Scooby Stack" + "\n\t" +
-                        "Size: " + sandwichSize + "\n\t" +
+                        "Size: DOUBLE STACK\n\t" +
                         "Bread: " + breadType + "\n\t" +
                         "Not Toasted\n\t" +
                         "Toppings: " + sandwichToppings + "\n";
