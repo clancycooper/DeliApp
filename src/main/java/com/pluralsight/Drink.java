@@ -54,8 +54,8 @@ public class Drink extends Item {
         if (hasIce) {
             return drinkSize + ", " +
                     drinkFlavor + ", " +
-                    "On the rocks(Ice)";
-        } else{
+                    "On The Rocks(Ice)";
+        } else {
             return drinkSize + ", " +
                     drinkFlavor + ", " +
                     "No Ice";

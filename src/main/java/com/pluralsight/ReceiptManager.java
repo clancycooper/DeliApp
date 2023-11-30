@@ -10,7 +10,6 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Scanner;
 
-
 import static com.pluralsight.Item.getTotal;
 import static com.pluralsight.UserInterface.homeScreen;
 
@@ -19,25 +18,21 @@ public class ReceiptManager {
     static DecimalFormat df = new DecimalFormat("#.00");
 
     public static void displayOrderDetails(ArrayList<Item> cart) {
-        //confirm order and save receipt
-        //or cancel order and return to homeScreen
-        Collections.sort(cart, (Item i1, Item i2) ->{
+        Collections.sort(cart, (Item i1, Item i2) -> {
             return i1.getClass().toString().compareToIgnoreCase(i2.getClass().toString());
         });
         int sandTemp = 1, drinkTemp = 1, chipsTemp = 1;
         System.out.println("\nPlease review your order, and type CONFIRM or CANCEL below.");
         System.out.println("\nYour Order: ");
         for (Item item : cart) {
-            if(item.getClass().toString().equals("class com.pluralsight.Sandwich")){
-                System.out.println("\nSandwich " + sandTemp + ".) \n\t" + item.toString());
+            if (item.getClass().toString().equals("class com.pluralsight.Sandwich")) {
+                System.out.println("\nSandwich " + sandTemp + ".) \n\t" + item);
                 sandTemp++;
-            }
-            else if(item.getClass().toString().equals("class com.pluralsight.Drink")){
-                System.out.println("\nDrink " + drinkTemp + ".) \n\t" + item.toString());
+            } else if (item.getClass().toString().equals("class com.pluralsight.Drink")) {
+                System.out.println("\nDrink " + drinkTemp + ".) \n\t" + item);
                 drinkTemp++;
-            }
-            else{
-                System.out.println("\nChips " + chipsTemp + ".) \n\t" + item.toString());
+            } else {
+                System.out.println("\nChips " + chipsTemp + ".) \n\t" + item);
                 chipsTemp++;
             }
 
@@ -57,8 +52,6 @@ public class ReceiptManager {
     }
 
     public static void saveReceipt(ArrayList<Item> cart) {
-        //getCart method in Item class
-        // Generate timestamp for the filename
         String timeStamp = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date());
         String fileName = FILE_DIRECTORY + timeStamp + ".txt";
         int sandTemp = 1, drinkTemp = 1, chipsTemp = 1;
@@ -71,26 +64,26 @@ public class ReceiptManager {
             writer.write("Your Order: ");
             writer.newLine();
             for (Item item : cart) {
-                if(item.getClass().toString().equals("class com.pluralsight.Sandwich")){
+                if (item.getClass().toString().equals("class com.pluralsight.Sandwich")) {
                     writer.newLine();
-                    writer.write("Sandwich " + sandTemp + ".) \n\t" + item.toString());
+                    writer.write("Sandwich " + sandTemp + ".) \n\t" + item);
                     sandTemp++;
-                }
-                else if(item.getClass().toString().equals("class com.pluralsight.Drink")){
+                } else if (item.getClass().toString().equals("class com.pluralsight.Drink")) {
                     writer.newLine();
-                    writer.write("Drink " + drinkTemp + ".) \n\t" + item.toString());
+                    writer.write("Drink " + drinkTemp + ".) \n\t" + item);
                     drinkTemp++;
-                }
-                else{
+                } else {
                     writer.newLine();
-                    writer.write("Chips " + chipsTemp + ".) \n\t" + item.toString());
+                    writer.write("Chips " + chipsTemp + ".) \n\t" + item);
                     chipsTemp++;
                 }
 
             }
             writer.newLine();
             writer.write("Your Order Total $" + df.format(getTotal()));
-            System.out.println("\nLike thank you for your purchase!!\n\nReceipt generated successfully: " + fileName);
+            writer.newLine();
+            writer.write("Thank you for shopping at Scooby's Snack Shack! Please come again soon!");
+            System.out.println("\nLike thank you for your purchase!\n\nReceipt generated successfully: " + fileName);
         } catch (IOException e) {
             System.err.println("\nError generating receipt: " + e.getMessage());
         }
