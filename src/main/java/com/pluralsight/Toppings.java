@@ -1,6 +1,5 @@
 package com.pluralsight;
 
-import java.util.ArrayList;
 import static com.pluralsight.Menu.*;
 
 public class Toppings extends Item {

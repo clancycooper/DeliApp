@@ -1,6 +1,5 @@
 package com.pluralsight;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public abstract class Item implements ItemFunctions {

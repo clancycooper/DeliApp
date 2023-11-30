@@ -19,7 +19,7 @@ public class MenuReader {
             while ((tempInfo = br.readLine()) != null) {
                 String[] splitLine = tempInfo.split("\\|");
                 switch (temp) {
-                    case 0:
+                    case 0 -> {
                         isFirst = true;
                         for (String newTopping : splitLine) {
                             if (!isFirst) {
@@ -29,8 +29,8 @@ public class MenuReader {
                                 isFirst = false;
                         }
                         temp++;
-                        break;
-                    case 1:
+                    }
+                    case 1 -> {
                         isFirst = true;
                         for (String newTopping : splitLine) {
                             if (!isFirst) {
@@ -40,8 +40,8 @@ public class MenuReader {
                                 isFirst = false;
                         }
                         temp++;
-                        break;
-                    case 2:
+                    }
+                    case 2 -> {
                         isFirst = true;
                         for (String newTopping : splitLine) {
                             if (!isFirst) {
@@ -51,8 +51,8 @@ public class MenuReader {
                                 isFirst = false;
                         }
                         temp++;
-                        break;
-                    case 3:
+                    }
+                    case 3 -> {
                         isFirst = true;
                         for (String newTopping : splitLine) {
                             if (!isFirst) {
@@ -62,8 +62,8 @@ public class MenuReader {
                                 isFirst = false;
                         }
                         temp++;
-                        break;
-                    case 4:
+                    }
+                    case 4 -> {
                         isFirst = true;
                         for (String drinkName : splitLine) {
                             if (!isFirst) {
@@ -73,8 +73,8 @@ public class MenuReader {
                                 isFirst = false;
                         }
                         temp++;
-                        break;
-                    case 5:
+                    }
+                    case 5 -> {
                         isFirst = true;
                         for (String chipName : splitLine) {
                             if (!isFirst) {
@@ -84,7 +84,7 @@ public class MenuReader {
                                 isFirst = false;
                         }
                         temp++;
-                        break;
+                    }
                 }
             }
             homeScreen();
