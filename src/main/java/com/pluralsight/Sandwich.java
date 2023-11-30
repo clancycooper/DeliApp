@@ -138,6 +138,8 @@ public class Sandwich extends Item {
                     else if (topping.isExtraMunchy)
                         sandwichPrice += 1.80;
                 }
+            case "EXTRA LARGE":
+                sandwichPrice = 45.00;
         }
         return sandwichPrice;
     }
@@ -145,29 +147,60 @@ public class Sandwich extends Item {
     @Override
     public String toString() {
         if (isToasted()) {
-            if (sandwichToppings.isEmpty()) {
-                return "Size: " + sandwichSize + "\n\t" +
+            if (sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")){
+                return "Signature: Mystery Sub" + "\n\t" +
+                        "Size: " + sandwichSize + "\n\t" +
                         "Bread: " + breadType + "\n\t" +
                         "Toasted\n\t" +
-                        "No Toppings" + "\n\t";
-            } else {
-                return "Size: " + sandwichSize + "\n\t" +
-                        "Bread: " + breadType + "\n\t" +
-                        "Toasted\n\t" + "Toppings: " + sandwichToppings + "\n";
+                        "Toppings: ?" + "\n\t";
             }
-        } else {
-            if (sandwichToppings.isEmpty()) {
-                return "Size: " + sandwichSize + "\n\t" +
+            else if (!sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")) {
+                return "Signature: Scooby Stack" + "\n\t" +
+                        "Size: " + sandwichSize + "\n\t" +
+                        "Bread: " + breadType + "\n\t" +
+                        "Toasted\n\t" +
+                        "Toppings: " + sandwichToppings + "\n";
+            }
+            else {
+                if (sandwichToppings.isEmpty()) {
+                    return "Size: " + sandwichSize + "\n\t" +
+                            "Bread: " + breadType + "\n\t" +
+                            "Toasted\n\t" +
+                            "No Toppings" + "\n\t";
+                } else {
+                    return "Size: " + sandwichSize + "\n\t" +
+                            "Bread: " + breadType + "\n\t" +
+                            "Toasted\n\t" + "Toppings: " + sandwichToppings + "\n";
+                }
+            }
+        }
+        else {
+            if (sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")){
+                return "Signature: Mystery Sub" + "\n\t" +
+                        "Size: " + sandwichSize + "\n\t" +
                         "Bread: " + breadType + "\n\t" +
                         "Not Toasted\n\t" +
-                        "No Toppings" + "\n\t";
-            } else {
-                return "Size: " + sandwichSize + "\n\t" +
+                        "Toppings: ?" + "\n\t";
+            } else if (!sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")) {
+                return "Signature: Scooby Stack" + "\n\t" +
+                        "Size: " + sandwichSize + "\n\t" +
                         "Bread: " + breadType + "\n\t" +
                         "Not Toasted\n\t" +
-                        "Toppings: " + sandwichToppings + "\n\t";
+                        "Toppings: " + sandwichToppings + "\n";
             }
-
+            else {
+                if (sandwichToppings.isEmpty()) {
+                    return "Size: " + sandwichSize + "\n\t" +
+                            "Bread: " + breadType + "\n\t" +
+                            "Not Toasted\n\t" +
+                            "No Toppings" + "\n\t";
+                } else {
+                    return "Size: " + sandwichSize + "\n\t" +
+                            "Bread: " + breadType + "\n\t" +
+                            "Not Toasted\n\t" +
+                            "Toppings: " + sandwichToppings + "\n\t";
+                }
+            }
         }
     }
 }

@@ -33,14 +33,16 @@ public class UserInterface {
 
     public static void orderScreen(){
         System.out.println("\nWhat would you like to order?");
-        System.out.print("\t[1] Add Sandwich\n\t[2] Add Drink\n\t[3] Add Chips\n\t[4] Checkout\n\t[0] Cancel Order\nUser Input: ");
+        System.out.print("\t[1] Add Custom Sandwich\n\t[2] Add Signature Sandwich" +
+                "\n\t[3] Add Drink\n\t[4] Add Chips\n\t[5] Checkout\n\t[0] Cancel Order\nUser Input: ");
         String selection = keyboard.nextLine();
 
         switch (selection) {
             case "1" -> addSandwich();
-            case "2" -> addDrink();
-            case "3" -> addChips();
-            case "4" -> checkOut();
+            case "2" -> addSignatureSandwich();
+            case "3" -> addDrink();
+            case "4" -> addChips();
+            case "5" -> checkOut();
             case "0" -> {
                 cart.clear();
                 homeScreen();
@@ -52,10 +54,53 @@ public class UserInterface {
         }
     }
 
+   public static void addSignatureSandwich(){
+        Sandwich signatureSandwich = new Sandwich();
+       System.out.print("\nLike choose a signature Sub!" +
+               "\n\t[1] Scooby Stack/All Bread and All Toppings - ($45.00)" +
+               "\n\t[2] Mystery Sub/Staff Pick - ($45.00)" +
+               "\nUser Input: ");
+       String selection = keyboard.nextLine();
+               switch(selection) {
+                   case "1" -> {
+                       signatureSandwich = scoobyStack;
+
+                   }
+                   case "2" -> {
+                       signatureSandwich = mysterySub;
+
+                   }
+                   default -> {
+                       System.out.println("\nJinkies! Please choose a valid option.");
+                       addSignatureSandwich();
+                   }
+               }
+       System.out.println("\nWould you like your sandwich toasted? (1 or 2)");
+       System.out.print("\t[1] Toasted\n\t[2] Not Toasted\nUser Input: ");
+       String toastedChoice = keyboard.nextLine().trim();
+       boolean isToasted = true;
+
+       switch (toastedChoice) {
+           case "1" -> {
+           }
+           case "2" -> isToasted = false;
+           default -> {
+               System.out.println("\nRuh Roh! That's not a valid option. Please try again. ");
+               addSignatureSandwich();
+           }
+       }
+       signatureSandwich.setToasted(isToasted);
+       addToCart(signatureSandwich);
+       System.out.println("\nSandwich successfully added! Now returning to the Order Screen.");
+       orderScreen();
+    }
+
     public static void addSandwich(){
         Sandwich sandwich = new Sandwich();
         System.out.println("\nWhat size sandwich would you like? (1, 2, or 3)");
-        System.out.print("\t[1] Small/4 Inch - ($5.50)\n\t[2] Medium/8 Inch - ($7.00)\n\t[3] Large/12 Inch - ($8.50)\nUser Input: ");
+        System.out.print("\t[1] Small/4 Inch - ($5.50)\n\t[2] Medium/8 Inch - ($7.00)" +
+                "\n\t[3] Large/12 Inch - ($8.50)" +
+                "\nUser Input: ");
         String sizeChoice = keyboard.nextLine().trim();
         String size = "";
 
