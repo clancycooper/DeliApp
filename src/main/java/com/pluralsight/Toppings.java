@@ -6,7 +6,7 @@ public class Toppings extends Item {
     protected String toppingName;
     protected boolean isMeat, isExtraMeat, isCheese, isExtraCheese, isMunchy, isExtraMunchy;
 
-    public Toppings(String toppingName, String size, boolean isMeat, boolean isExtraMeat, boolean isCheese, boolean isExtraCheese, boolean isMunchy, boolean isExtraMunchy) {
+    public Toppings(String toppingName, boolean isMeat, boolean isExtraMeat, boolean isCheese, boolean isExtraCheese, boolean isMunchy, boolean isExtraMunchy) {
         this.toppingName = toppingName;
         this.isMeat = isMeat;
         this.isExtraMeat = isExtraMeat;

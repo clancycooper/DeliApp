@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class Chips extends Item {
     protected String chipType;
     static ArrayList<Chips> chipFlavors = new ArrayList<>();
+
     public Chips(String chipType) {
         this.chipType = chipType;
     }
+
     public String getChipType() {
         return chipType;
     }

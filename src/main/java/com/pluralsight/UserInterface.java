@@ -2,19 +2,20 @@ package com.pluralsight;
 
 import java.util.Scanner;
 
-
-import static com.pluralsight.ReceiptManager.displayOrderDetails;
-import static com.pluralsight.Sandwich.*;
-import static com.pluralsight.Toppings.*;
-import static com.pluralsight.Drink.*;
-import static com.pluralsight.Chips.*;
+import static com.pluralsight.Chips.chipFlavors;
+import static com.pluralsight.Chips.toStringChipFlavors;
+import static com.pluralsight.Drink.drinkFlavors;
+import static com.pluralsight.Drink.toStringDrinkFlavors;
 import static com.pluralsight.Menu.*;
+import static com.pluralsight.ReceiptManager.displayOrderDetails;
+import static com.pluralsight.Sandwich.cart;
+import static com.pluralsight.Toppings.*;
 
 public class UserInterface {
     public static Scanner keyboard = new Scanner(System.in);
 
-    public static void homeScreen(){
-        System.out.println("\nWelcome to Scooby's Snack Shack! How may we serve you today?" );
+    public static void homeScreen() {
+        System.out.println("\nWelcome to Scooby's Snack Shack! How may we serve you today?");
         System.out.print("\t[1] New order\n\t[2] Exit\nUser Input: ");
         String selection = keyboard.nextLine();
 
@@ -31,7 +32,7 @@ public class UserInterface {
         }
     }
 
-    public static void orderScreen(){
+    public static void orderScreen() {
         System.out.println("\nWhat would you like to order?");
         System.out.print("\t[1] Add Custom Sandwich\n\t[2] Add Signature Sandwich" +
                 "\n\t[3] Add Drink\n\t[4] Add Chips\n\t[5] Checkout\n\t[0] Cancel Order\nUser Input: ");
@@ -54,48 +55,48 @@ public class UserInterface {
         }
     }
 
-   public static void addSignatureSandwich(){
+    public static void addSignatureSandwich() {
         Sandwich signatureSandwich = new Sandwich();
-       System.out.print("\nLike choose a signature Sub!" +
-               "\n\t[1] Scooby Stack/All Bread and All Toppings - ($45.00)" +
-               "\n\t[2] Mystery Sub/Staff Pick - ($45.00)" +
-               "\nUser Input: ");
-       String selection = keyboard.nextLine();
-               switch(selection) {
-                   case "1" -> {
-                       signatureSandwich = scoobyStack;
+        System.out.print("\nLike choose a signature Sub!" +
+                "\n\t[1] Scooby Stack/All Bread and All Toppings - ($45.00)" +
+                "\n\t[2] Mystery Sub/Staff Pick - ($45.00)" +
+                "\nUser Input: ");
+        String selection = keyboard.nextLine();
+        switch (selection) {
+            case "1" -> {
+                signatureSandwich = scoobyStack;
 
-                   }
-                   case "2" -> {
-                       signatureSandwich = mysterySub;
+            }
+            case "2" -> {
+                signatureSandwich = mysterySub;
 
-                   }
-                   default -> {
-                       System.out.println("\nJinkies! Please choose a valid option.");
-                       addSignatureSandwich();
-                   }
-               }
-       System.out.println("\nWould you like your sandwich toasted? (1 or 2)");
-       System.out.print("\t[1] Toasted\n\t[2] Not Toasted\nUser Input: ");
-       String toastedChoice = keyboard.nextLine().trim();
-       boolean isToasted = true;
+            }
+            default -> {
+                System.out.println("\nJinkies! Please choose a valid option.");
+                addSignatureSandwich();
+            }
+        }
+        System.out.println("\nWould you like your sandwich toasted? (1 or 2)");
+        System.out.print("\t[1] Toasted\n\t[2] Not Toasted\nUser Input: ");
+        String toastedChoice = keyboard.nextLine().trim();
+        boolean isToasted = true;
 
-       switch (toastedChoice) {
-           case "1" -> {
-           }
-           case "2" -> isToasted = false;
-           default -> {
-               System.out.println("\nRuh Roh! That's not a valid option. Please try again. ");
-               addSignatureSandwich();
-           }
-       }
-       signatureSandwich.setToasted(isToasted);
-       addToCart(signatureSandwich);
-       System.out.println("\nSandwich successfully added! Now returning to the Order Screen.");
-       orderScreen();
+        switch (toastedChoice) {
+            case "1" -> {
+            }
+            case "2" -> isToasted = false;
+            default -> {
+                System.out.println("\nRuh Roh! That's not a valid option. Please try again. ");
+                addSignatureSandwich();
+            }
+        }
+        signatureSandwich.setToasted(isToasted);
+        addToCart(signatureSandwich);
+        System.out.println("\nSandwich successfully added! Now returning to the Order Screen.");
+        orderScreen();
     }
 
-    public static void addSandwich(){
+    public static void addSandwich() {
         Sandwich sandwich = new Sandwich();
         System.out.println("\nWhat size sandwich would you like? (1, 2, or 3)");
         System.out.print("\t[1] Small/4 Inch - ($5.50)\n\t[2] Medium/8 Inch - ($7.00)" +
@@ -171,8 +172,8 @@ public class UserInterface {
         orderScreen();
     }
 
-     public static void toppingsMenu(Sandwich sandwich){
-        try{
+    public static void toppingsMenu(Sandwich sandwich) {
+        try {
             System.out.println("\nWhich toppings would you like to view?");
             System.out.println("\t[1] Regular Toppings (Included)");
             switch (sandwich.getSandwichSize()) {
@@ -279,13 +280,12 @@ public class UserInterface {
                     toppingsMenu(sandwich);
                 }
             }
-        }
-        catch(Exception inputError){
+        } catch (Exception inputError) {
             System.out.println("\nThere seems to have been an issue with your input, please try again!");
             inputError.printStackTrace();
             toppingsMenu(sandwich);
         }
-     }
+    }
 
     public static void anotherTopping(Sandwich sandwich) {
         System.out.println("\nWould you like to add another topping? (1 or 2)");
@@ -302,12 +302,12 @@ public class UserInterface {
         }
     }
 
-    public static void addDrink(){
-        try{
+    public static void addDrink() {
+        try {
             System.out.println("\nWhat size drink would you like? (1, 2, or 3)");
             System.out.print("\t[1] Small ($2.00)\n\t[2] Medium($2.50)\n\t[3] Large($3.00)\nUser Input: ");
-            String drinkSizeChoice = keyboard.nextLine().trim(), size="";
-            switch(drinkSizeChoice){
+            String drinkSizeChoice = keyboard.nextLine().trim(), size = "";
+            switch (drinkSizeChoice) {
                 case "1":
                     size = "SMALL";
                     break;
@@ -323,7 +323,7 @@ public class UserInterface {
             }
             toStringDrinkFlavors();
             System.out.print("\nPlease enter the # of your drink choice: ");
-            String flavourChoice = (drinkFlavors.get((Integer.parseInt(keyboard.nextLine().trim()))-1)).getDrinkFlavor();
+            String flavourChoice = (drinkFlavors.get((Integer.parseInt(keyboard.nextLine().trim())) - 1)).getDrinkFlavor();
             System.out.print("\nWould you like ice? (1 or 2)");
             System.out.print("\n\t[1] Yes\n\t[2] No\nUser Input: ");
             String iceChoice = keyboard.nextLine().trim();
@@ -341,34 +341,32 @@ public class UserInterface {
             addToCart(newDrink);
             System.out.println("\nDrink successfully added! Now returning to the main menu.");
             orderScreen();
-        }
-        catch(Exception inputError){
+        } catch (Exception inputError) {
             System.out.println("\nPlease enter a valid option! Returning to drink menu.");
             addDrink();
         }
     }
 
-    public static void addChips(){
-        try{
+    public static void addChips() {
+        try {
             toStringChipFlavors();
             System.out.print("\nPlease enter the # of your chip choice: ");
-            String chipChoice = (chipFlavors.get((Integer.parseInt(keyboard.nextLine().trim()))-1)).getChipType();
+            String chipChoice = (chipFlavors.get((Integer.parseInt(keyboard.nextLine().trim())) - 1)).getChipType();
             Chips chips = new Chips(chipChoice);
             addToCart(chips);
             System.out.println("\nChips successfully added! Now returning to the main menu.");
             orderScreen();
-        }
-        catch(Exception inputError){
+        } catch (Exception inputError) {
             System.out.println("\nPlease enter a valid option! Returning to drink menu.");
             addDrink();
         }
     }
 
-    public static void addToCart(Item newItem){
+    public static void addToCart(Item newItem) {
         cart.add(newItem);
     }
 
-    public static void checkOut(){
+    public static void checkOut() {
         displayOrderDetails(cart);
     }
 }

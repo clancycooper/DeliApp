@@ -23,7 +23,7 @@ public class MenuReader {
                         isFirst = true;
                         for (String newTopping : splitLine) {
                             if (!isFirst) {
-                                Toppings newRegularTopping = new Toppings(newTopping, "small", false, false, false, false, false, false);
+                                Toppings newRegularTopping = new Toppings(newTopping, false, false, false, false, false, false);
                                 regularToppings.add(newRegularTopping);
                                 allToppings.add(newRegularTopping);
                             } else
@@ -35,7 +35,7 @@ public class MenuReader {
                         isFirst = true;
                         for (String newTopping : splitLine) {
                             if (!isFirst) {
-                                Toppings newMeatTopping = new Toppings(newTopping, "small", true, false, false, false, false, false);
+                                Toppings newMeatTopping = new Toppings(newTopping, true, false, false, false, false, false);
                                 premiumMeatToppings.add(newMeatTopping);
                                 allToppings.add(newMeatTopping);
                             } else
@@ -47,7 +47,7 @@ public class MenuReader {
                         isFirst = true;
                         for (String newTopping : splitLine) {
                             if (!isFirst) {
-                                Toppings newCheeseTopping = new Toppings(newTopping, "small", false, false, true, false, false, false);
+                                Toppings newCheeseTopping = new Toppings(newTopping, false, false, true, false, false, false);
                                 premiumCheeseToppings.add(newCheeseTopping);
                                 allToppings.add(newCheeseTopping);
                             } else
@@ -59,7 +59,7 @@ public class MenuReader {
                         isFirst = true;
                         for (String newTopping : splitLine) {
                             if (!isFirst) {
-                                Toppings newMunchyTopping = new Toppings(newTopping, "small", false, false, false, false, true, false);
+                                Toppings newMunchyTopping = new Toppings(newTopping, false, false, false, false, true, false);
                                 munchyToppings.add(newMunchyTopping);
                                 allToppings.add(newMunchyTopping);
                             } else

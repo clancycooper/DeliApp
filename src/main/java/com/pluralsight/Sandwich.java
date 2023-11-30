@@ -14,7 +14,8 @@ public class Sandwich extends Item {
         this.sandwichToppings = sandwichToppings;
         this.toasted = toasted;
     }
-    public Sandwich(){
+
+    public Sandwich() {
 
     }
 
@@ -38,8 +39,8 @@ public class Sandwich extends Item {
         return this.toasted;
     }
 
-    public boolean hasAnyMeat(){
-        if(sandwichToppings.isEmpty())
+    public boolean hasAnyMeat() {
+        if (sandwichToppings.isEmpty())
             return false;
         else {
             int temp = sandwichToppings.size();
@@ -47,15 +48,12 @@ public class Sandwich extends Item {
                 if (topping.isMeat)
                     temp--;
             }
-            if (temp == sandwichToppings.size())
-                return false;
-            else
-                return true;
+            return temp != sandwichToppings.size();
         }
     }
 
-    public boolean hasAnyCheese(){
-        if(sandwichToppings.isEmpty())
+    public boolean hasAnyCheese() {
+        if (sandwichToppings.isEmpty())
             return false;
         else {
             int temp = sandwichToppings.size();
@@ -63,15 +61,12 @@ public class Sandwich extends Item {
                 if (topping.isCheese)
                     temp--;
             }
-            if (temp == sandwichToppings.size())
-                return false;
-            else
-                return true;
+            return temp != sandwichToppings.size();
         }
     }
 
-    public boolean hasAnyMunchy(){
-        if(sandwichToppings.isEmpty())
+    public boolean hasAnyMunchy() {
+        if (sandwichToppings.isEmpty())
             return false;
         else {
             int temp = sandwichToppings.size();
@@ -79,10 +74,7 @@ public class Sandwich extends Item {
                 if (topping.isMunchy)
                     temp--;
             }
-            if (temp == sandwichToppings.size())
-                return false;
-            else
-                return true;
+            return temp != sandwichToppings.size();
         }
     }
 
@@ -147,21 +139,19 @@ public class Sandwich extends Item {
     @Override
     public String toString() {
         if (isToasted()) {
-            if (sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")){
+            if (sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")) {
                 return "Signature: Mystery Sub" + "\n\t" +
                         "Size: " + sandwichSize + "\n\t" +
                         "Bread: " + breadType + "\n\t" +
                         "Toasted\n\t" +
                         "Toppings: ?" + "\n\t";
-            }
-            else if (!sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")) {
+            } else if (!sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")) {
                 return "Signature: Scooby Stack" + "\n\t" +
                         "Size: " + sandwichSize + "\n\t" +
                         "Bread: " + breadType + "\n\t" +
                         "Toasted\n\t" +
                         "Toppings: " + sandwichToppings + "\n";
-            }
-            else {
+            } else {
                 if (sandwichToppings.isEmpty()) {
                     return "Size: " + sandwichSize + "\n\t" +
                             "Bread: " + breadType + "\n\t" +
@@ -173,9 +163,8 @@ public class Sandwich extends Item {
                             "Toasted\n\t" + "Toppings: " + sandwichToppings + "\n";
                 }
             }
-        }
-        else {
-            if (sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")){
+        } else {
+            if (sandwichToppings.isEmpty() && sandwichSize.equals("EXTRA LARGE")) {
                 return "Signature: Mystery Sub" + "\n\t" +
                         "Size: " + sandwichSize + "\n\t" +
                         "Bread: " + breadType + "\n\t" +
@@ -187,8 +176,7 @@ public class Sandwich extends Item {
                         "Bread: " + breadType + "\n\t" +
                         "Not Toasted\n\t" +
                         "Toppings: " + sandwichToppings + "\n";
-            }
-            else {
+            } else {
                 if (sandwichToppings.isEmpty()) {
                     return "Size: " + sandwichSize + "\n\t" +
                             "Bread: " + breadType + "\n\t" +
