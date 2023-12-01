@@ -2,6 +2,8 @@ package com.pluralsight;
 
 import java.util.ArrayList;
 
+//Erik
+//Steven added signature sandwiches logic
 public class Sandwich extends Item {
     String breadType;
     String sandwichSize;

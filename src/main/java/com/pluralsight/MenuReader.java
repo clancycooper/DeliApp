@@ -8,6 +8,9 @@ import static com.pluralsight.Drink.drinkFlavors;
 import static com.pluralsight.Menu.*;
 import static com.pluralsight.UserInterface.homeScreen;
 
+//Clancy and Andi
+//Erik added temp++ and UI changes
+
 public class MenuReader {
     public static void menuReader() {
         try {

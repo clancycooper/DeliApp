@@ -2,6 +2,8 @@ package com.pluralsight;
 
 import java.util.ArrayList;
 
+//Clancy
+//Steven added toStrings
 public class Chips extends Item {
     protected String chipType;
     static ArrayList<Chips> chipFlavors = new ArrayList<>();

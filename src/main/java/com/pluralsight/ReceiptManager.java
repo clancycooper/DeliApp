@@ -13,6 +13,9 @@ import java.util.Scanner;
 import static com.pluralsight.Item.getTotal;
 import static com.pluralsight.UserInterface.homeScreen;
 
+//Clancy and Andi
+//Erik added temp++ and collections.sort
+
 public class ReceiptManager {
     private static final String FILE_DIRECTORY = "src/main/resources/Receipts/";
     static DecimalFormat df = new DecimalFormat("#.00");

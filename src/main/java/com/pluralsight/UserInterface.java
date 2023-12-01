@@ -11,6 +11,10 @@ import static com.pluralsight.ReceiptManager.displayOrderDetails;
 import static com.pluralsight.Sandwich.cart;
 import static com.pluralsight.Toppings.*;
 
+//Steven
+//addToCart was thought of and written by Steven
+//Erik assisted in connecting the dots to the other classes
+
 public class UserInterface {
     public static Scanner keyboard = new Scanner(System.in);
 

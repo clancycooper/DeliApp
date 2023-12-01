@@ -2,6 +2,9 @@ package com.pluralsight;
 
 import java.util.ArrayList;
 
+//Clancy
+//Steven added toStrings
+
 public class Drink extends Item {
     protected String drinkSize, drinkFlavor;
     protected boolean hasIce;
